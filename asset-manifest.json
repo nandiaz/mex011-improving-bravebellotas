@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/mex011-improving-bravebellotas/static/css/main.c7ec3132.css",
-    "main.js": "/mex011-improving-bravebellotas/static/js/main.5fedeb54.js",
+    "main.js": "/mex011-improving-bravebellotas/static/js/main.346d549b.js",
     "static/js/787.05fe508a.chunk.js": "/mex011-improving-bravebellotas/static/js/787.05fe508a.chunk.js",
     "index.html": "/mex011-improving-bravebellotas/index.html",
     "main.c7ec3132.css.map": "/mex011-improving-bravebellotas/static/css/main.c7ec3132.css.map",
-    "main.5fedeb54.js.map": "/mex011-improving-bravebellotas/static/js/main.5fedeb54.js.map",
+    "main.346d549b.js.map": "/mex011-improving-bravebellotas/static/js/main.346d549b.js.map",
     "787.05fe508a.chunk.js.map": "/mex011-improving-bravebellotas/static/js/787.05fe508a.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.c7ec3132.css",
-    "static/js/main.5fedeb54.js"
+    "static/js/main.346d549b.js"
   ]
 }
