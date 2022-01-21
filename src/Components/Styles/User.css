@@ -12,13 +12,14 @@
     border-radius: 50px;
     flex-direction: column;
     background-color: #001E52;
+    align-items: center;
+    justify-content: center;
   }
-
+  
   .avatar{
       display: flex;
       position: relative;
       margin-top: 3vh;
-      margin-left: 7vh;
       flex-direction: column;
   }
 
