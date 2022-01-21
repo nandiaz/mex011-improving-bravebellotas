@@ -1,21 +1,28 @@
 import React from 'react';
-import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
+import '../Styles/CareerAmbition.css';
+import  Button  from '@mui/material/Button';
 
 export default function CareerAmbition() {
   return (
-    <Box
-      component="form"
-      sx={{
-        '& > :not(style)': { m: 1, width: '25ch' },
-      }}
-      noValidate
-      autoComplete="off"
-    >
-      <TextField id="outlined-basic" label="Outlined" variant="outlined" />
-      <TextField id="filled-basic" label="Filled" variant="filled" />
-      <TextField id="standard-basic" label="Standard" variant="standard" />
-    </Box>
+    <div className='career-ambition'>
+      <TextField
+          label="Career Ambition"
+          id="filled-full-width"
+          style={{ margin: 8 }}
+          placeholder=""
+          helperText="I am your goal write me...!"
+          fullWidth
+          margin="normal"
+          InputLabelProps={{
+            shrink: true,
+          }}
+          variant="filled"
+        />
+    
+      <Button>Edit</Button>
+    </div>
+
 
   );
 }
