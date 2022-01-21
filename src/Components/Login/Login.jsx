@@ -7,9 +7,15 @@ import { onAuthStateChanged } from "@firebase/auth";
 import { Nav } from "./Nav";
 import "../Styles/Login.css";
 import Career from "../../assets/career-build.png"
+import Button from "@material-ui/core/Button";
+import { TextField } from "@material-ui/core";
 //import useAuth from "../Hooks/useAuth";
 
 export default function Home() {
+
+
+
+
   let navigate = useNavigate();
   const [loginEmail, setLoginEmail] = useState("");
   const [loginPassword, setLoginPassword] = useState("");
@@ -33,7 +39,7 @@ export default function Home() {
       navigate("/");
       console.log(loginEmail);
     } catch (error) {
-      setError("Contraseña o usuario no válido");
+      setError("The password or username is not valid");
     }
   };
 
@@ -41,45 +47,65 @@ export default function Home() {
     <>
       <Nav />
       <section className="log-in">
-        <div className="left-login">
-          <div className="text-login">
-            <p>Career</p>
-            <p>Planning</p>
-          </div>
 
+        <div className="left-login">
+
+          
+            <h1 className="p-career" >Career</h1>
+            <h1 className="p-planning">Planning</h1>
+          
+          <picture className="img-login">
           <img
             src={Career}
             alt="Improve logo"
             className="path-login"
           />
+          </picture>
+          
         </div>
         <div className="right-login">
-          <p>Hi Improver!</p>
-          <p className="LogIn-Text">Log in to start</p>
-          <form className="Form" onSubmit={handleSubmit}>
-            <input
+          <h2 className="login-hi">Hi, Improver!</h2>
+          <h3 className="login-text">Login to start</h3>
+          <form className="form-login" onSubmit={handleSubmit}>
+
+            <TextField
+              label="Email"
+              variant="filled"
               type="email"
               id="email"
               placeholder="Enter your email address"
               required
               value={loginEmail}
+              className="input-log"
               onChange={(e) => setLoginEmail(e.target.value)}
             />
-
-            <input
+            <br />
+            <br />
+            <TextField
+              label="Password"
               type="password"
               id="password"
               placeholder="Enter your password"
               required
               value={loginPassword}
+              className="input-log"
               onChange={(e) => setLoginPassword(e.target.value)}
+              variant="filled"
+              size="small"
             />
+            <br />
+            <br />            
+            <div className="error-login">{error}</div>
 
-            <div className="errorLogin">{error}</div>
-            <button className="btt-submit" type="submit" value="INGRESAR">
-              INGRESAR
-            </button>
-            {/* <Link to="/" className="Continue-with-email">Continue with email</Link> */}
+            <Button 
+            variant="contained" 
+            size="medium" 
+            color="primary"  
+            className="btt-submit" 
+            type="submit" 
+            value="INGRESAR">
+              Login
+            </Button>
           </form>
         </div>
       </section>
