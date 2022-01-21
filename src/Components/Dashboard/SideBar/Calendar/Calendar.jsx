@@ -2,10 +2,17 @@
 import { Button } from '@mui/material';
 import "../../../Styles/Calendar.css"
 
+
+
 export default function Calendar() {
-  return (<div>
+  
+  return (<div className='calendarInfo'>
     <img className="calendar" src={process.env.PUBLIC_URL + '/calendar.png'}/>
-    <Button className="btn-seeAll" variant="contained" size= "small" >See all</Button>
+    <br></br>
+          <Button fullWidth size="large" variant="contained" >
+            See all
+          </Button>
+        
 
     </div>);
 }
