@@ -1,13 +1,36 @@
 import User from "./User";
 import Calendar from "./Calendar/Calendar";
 import '../../Styles/User.css';
+import Drawer from '@mui/material/Drawer';
 
+const drawerWidth = 300;
 
 export default function SideBar() {
     return (
-      <div className = "sideBar" >
+      <Drawer 
+         sx={{
+          width: drawerWidth,
+          flexShrink: 0,
+          
+          
+          '& .MuiDrawer-paper': {
+            width: drawerWidth,
+            boxSizing: 'border-box',
+            bgcolor: '#001E52',
+            alignItems: 'center' 
+          },
+        }}
+        variant="permanent"
+        anchor="left"
+        
+      >
+        
         <User />
         <Calendar />
-      </div>
+        
+      </Drawer>
+      
+    
+      
     );
 }
