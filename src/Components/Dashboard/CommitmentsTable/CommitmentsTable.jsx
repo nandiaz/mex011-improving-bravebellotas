@@ -1,10 +1,11 @@
 import React from 'react';
 import { Table, TableContainer, TableHead, TableCell, TableRow, Container } from '@material-ui/core';
-//import '../Styles/CommitmentsTable.css';
+import '../../Styles/CommitmentsTable.css';
 
 export default function CommitmentsTable() {
   return (
-    <Container>
+    <div className='container-commitments'>
+      <Container>
       <TableContainer>
       <h1 className="title-commitments-table">90-Days commitments</h1>
         <Table>
@@ -35,5 +36,7 @@ export default function CommitmentsTable() {
         </Table>
       </TableContainer>
     </Container>
+    </div>
+    
   );
 }

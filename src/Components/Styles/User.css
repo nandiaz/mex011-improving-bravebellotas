@@ -1,29 +1,15 @@
-.sideBar{
-    display: flex;
-    position: relative;
-    width: 20%;
-    min-width: 20%;
-    min-height: 0px;
-    height: 100vh;
-    box-sizing: border-box;
-    padding: 20px 20px;
-    margin-left: 0px;
-    box-shadow: 0 0 6px hsl(210 14% 90%);
-    border-radius: 50px;
-    flex-direction: column;
-    background-color: #001E52;
-  }
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
 
-  .avatar{
+.avatar{
       display: flex;
       position: relative;
       margin-top: 3vh;
-      margin-left: 7vh;
-      flex-direction: column;
+      margin-left: 10%;      
   }
 
   .infoUser{
       text-align: center;
       color: #ffffff;
       margin-top: 12px;
+      font-family: 'Roboto', sans-serif;
   }
