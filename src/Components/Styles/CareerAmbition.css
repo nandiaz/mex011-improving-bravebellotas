@@ -1,0 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+
+.title-career-ambition {
+    font-family: 'Roboto', sans-serif;
+}
+
+.career-ambition {
+    position: absolute;
+    width: 832px;
+    height: 99px;
+    left: 462px;
+    top: 147px;
+}
+
+.btn-career-ambition {
+    align-items: flex-start;
+}
