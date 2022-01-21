@@ -11,9 +11,9 @@ function App() {
     <>
         <Routes>
           <Route exact path="/login" element={<Login />} />
-          <Route exact path="/" element={<Dashboard/>} />
+           <Route exact path="/" element={<Dashboard/>} />
           <Route exact path="/edit-commitment" element={<EditTable />} />
-          <Route exact path="*" element={<>404 Page not Found</>} />
+          <Route exact path="*" element={<>404 Page not Found</>} /> 
         </Routes>
     </>
   );
