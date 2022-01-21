@@ -1,11 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+
 .nav-login{
     width: 100%;
-    height: 16vh;    
+    height: 18vh; 
+    padding: .5rem;   
 }
 .log-in{
     width: 100%;
-    height: 84vh;
-    padding: 10px;
+    height: 82vh;    
     display: flex;
 }
 .logo-login-n{
@@ -14,16 +17,74 @@
     padding: 5px;
 }
 .left-login{
-    width: 55%;
+    width: 55%;  
+    height: 100%;        
+}
+.img-login{
     display: flex;
     align-items: flex-end;
+    justify-content: flex-start;
+    margin-top: 1rem;
+}
+.path-login{
+    margin-left: .5rem ;
+    width: 85%;
+    height: 57vh;
     
+}
+.p-career{
+    text-shadow: 0px 1px 1px rgba(0, 0, 0, 0.25);
+    font-size: 2.7rem;
+    font-weight: bold;
+    color: #4597D3;  
+    font-family: 'Space Grotesk', sans-serif;   
+    margin-top: .5rem;
+    margin-left: 4.5rem;
+}
+.p-planning{
+    text-shadow: 0px 1px 1px rgba(0, 0, 0, 0.25);
+    font-size: 2.7rem;
+    font-weight: bold;
+    font-family: 'Space Grotesk', sans-serif;
+    color: #3DB39E;
+    margin-left: 9rem;
 }
 .right-login{
     width: 45%;
 }
-.path-login{
-    height: 60vh;
-   
-    
+.login-hi{
+    color: #3DB39E;
+    font-family: 'Roboto', sans-serif;
+    text-align:center;
+    font-size: 2rem;
+    margin-right: 3rem;
+    padding: 2rem;
+}
+.login-text{
+    color: #4597D3;  
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.3rem;
+    padding-bottom: 2rem;
+}
+.form-login{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.input-log{
+    width: 70%;        
+    height: 2rem;
+}
+.btt-submit{
+    width: 60%;
+    margin: auto;
+    font-size: 5rem;
+}
+.error-login{
+    padding: 2rem;
+    color: #E37948;
+    font-size: 1rem;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 900;
 }
