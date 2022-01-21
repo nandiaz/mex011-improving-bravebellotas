@@ -5,13 +5,11 @@ import { auth } from "../../Firebase/firebase-config";
 import { Login } from "../../Firebase/auth";
 import { onAuthStateChanged } from "@firebase/auth";
 import { Nav } from "./Nav";
-import "../Styles/Login.css"
+import "../Styles/Login.css";
+import Career from "../../assets/career-build.png"
 //import useAuth from "../Hooks/useAuth";
 
-
-
 export default function Home() {
-
   let navigate = useNavigate();
   const [loginEmail, setLoginEmail] = useState("");
   const [loginPassword, setLoginPassword] = useState("");
@@ -34,64 +32,60 @@ export default function Home() {
       await Login(loginEmail, loginPassword);
       navigate("/");
       console.log(loginEmail);
-    }
-    catch (error) {
+    } catch (error) {
       setError("Contraseña o usuario no válido");
     }
   };
 
   return (
     <>
-      <Nav/>
+      <Nav />
       <section className="log-in">
-      <div className="left-login">
-        <div className="text-login" >
-        <p>Career</p>
-        <p>Planning</p>
+        <div className="left-login">
+          <div className="text-login">
+            <p>Career</p>
+            <p>Planning</p>
+          </div>
+
+          <img
+            src={Career}
+            alt="Improve logo"
+            className="path-login"
+          />
         </div>
-      
-        <img src={process.env.PUBLIC_URL + '/career-build.png' } alt='Improve logo' className='path-login' />
-      </div>
-      <div className="right-login">
-        <p>Hi Improver!</p>
-        <p className="LogIn-Text">Log in to start</p>
-        <form className="Form" onSubmit={handleSubmit}>
-          <input
-            type="email"
-            id="email"
-            placeholder="Enter your email address"
-            required
-            value={loginEmail}
-            onChange={(e) => setLoginEmail(e.target.value)}
-          />
+        <div className="right-login">
+          <p>Hi Improver!</p>
+          <p className="LogIn-Text">Log in to start</p>
+          <form className="Form" onSubmit={handleSubmit}>
+            <input
+              type="email"
+              id="email"
+              placeholder="Enter your email address"
+              required
+              value={loginEmail}
+              onChange={(e) => setLoginEmail(e.target.value)}
+            />
 
-          <input
-            type="password"
-            id="password"
-            placeholder="Enter your password"
-            required
-            value={loginPassword}
-            onChange={(e) => setLoginPassword(e.target.value)}
-          />
+            <input
+              type="password"
+              id="password"
+              placeholder="Enter your password"
+              required
+              value={loginPassword}
+              onChange={(e) => setLoginPassword(e.target.value)}
+            />
 
-          <div className="errorLogin">{error}</div>
-          <button className="btt-submit" type="submit" value="INGRESAR">INGRESAR</button>
-          {/* <Link to="/" className="Continue-with-email">Continue with email</Link> */}
-        </form>
-
-      </div>
+            <div className="errorLogin">{error}</div>
+            <button className="btt-submit" type="submit" value="INGRESAR">
+              INGRESAR
+            </button>
+            {/* <Link to="/" className="Continue-with-email">Continue with email</Link> */}
+          </form>
+        </div>
       </section>
-      
     </>
   );
 }
-
-
-
-
-
-
-
 
 /* import React from "react";
 import { useState } from "react";
