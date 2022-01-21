@@ -32,7 +32,7 @@ export default function Home() {
     e.preventDefault();
     try {
       await Login(loginEmail, loginPassword);
-      navigate("/inside");
+      navigate("/");
       console.log(loginEmail);
     }
     catch (error) {
