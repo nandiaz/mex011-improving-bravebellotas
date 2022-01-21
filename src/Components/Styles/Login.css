@@ -1,0 +1,29 @@
+.nav-login{
+    width: 100%;
+    height: 16vh;    
+}
+.log-in{
+    width: 100%;
+    height: 84vh;
+    padding: 10px;
+    display: flex;
+}
+.logo-login-n{
+    width: auto;
+    height: 100%;
+    padding: 5px;
+}
+.left-login{
+    width: 55%;
+    display: flex;
+    align-items: flex-end;
+    
+}
+.right-login{
+    width: 45%;
+}
+.path-login{
+    height: 60vh;
+   
+    
+}
