@@ -4,15 +4,16 @@ import {
   Table,
   Paper,
   Input,
-  FormControl,
+  TextArea,
   InputLabel,
+  FormControl,
   TableContainer,
 } from "@mui/material";
 import EditTableRow from "./EditTableRow";
 import EditTableHead from "./EditTableHead";
 import React, { useState } from "react";
 
-export default function EditTable() {
+export default function EditTable({title}) {
   // Se recibirá de firestore, esto es sólo un mock
 
   const actionTableInfo = [
@@ -29,23 +30,13 @@ export default function EditTable() {
   const headValues = Object.keys(actionTableInfo[0]);
   const rows = actionTableInfo.map((obj) => Object.values(obj));
 
-/*   const [newData, useNewData] = useState([]);
-  const [input1, useInput1] = useState();
-  const [input2, useInput2] = useState();
-  const [input3, useInput3] = useState();
-
-  const addData = (e) => {
-    e.preventDefault();
-    useNewData([]);
-    actionTableInfo.push(newData);
-  }; */
-
   return (
     <>
       <TableContainer
         component={Paper}
         sx={{ width: 1 / 3, mx: "auto", my: "1em" }}
       >
+        <h2 id={title}>{title}</h2>
         <Table sx={{ width: 7 / 8, m: 2 }} aria-label="simple table">
           <EditTableHead headValues={headValues} />
           <EditTableRow rows={rows} />
@@ -68,15 +59,17 @@ export default function EditTable() {
             justifyContent: "space-between",
           }}
         >
-          {headValues.map((input) => (
+          {headValues.map((input, index) => (
             <>
-              <FormControl sx={{ width: 4 / 9, minWidth: "10em" }}>
-                <InputLabel htmlFor={`${input}-label`}>{input}</InputLabel>
+              <FormControl sx={{ width: 4 / 9, minWidth: "10em" }} key={input}>
+                <InputLabel htmlFor={`${input}-label`} key={index}>
+                  {input}
+                </InputLabel>
                 <Input
                   id={`${input}-label`}
                   type="text"
                   aria-label={input}
-                  /* onChange={(e) => `${setInput(e.target.value)}`} */
+                  key={index + 1}
                 />
               </FormControl>
             </>
