@@ -5,7 +5,7 @@ import '../../Styles/User.css';
 
 export default function User() {
   
-  return (<div>
+  return (<div className='sideBarInfo'>
     
     <Avatar className= "avatar" alt="A" sx={{ width: 180, height: 180 }}/>
     <h2 className='infoUser'>Yanet Morales</h2>

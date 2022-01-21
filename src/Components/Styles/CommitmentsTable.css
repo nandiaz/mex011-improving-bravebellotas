@@ -1,13 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
 
+.container-commitments {
+    position: absolute;
+    width: 832px;
+    height: 332px;
+    left: 467px;
+    top: 563px;
+    background-color: #747474;
+    border-radius: 15px;
+}
+
 
 .title-commitments-table {
     font-family: 'Roboto', sans-serif;
-}
-.commitments-table {
-position: absolute;
-width: 883px;
-height: 332px;
-left: 437px;
-top: 563px;
 }

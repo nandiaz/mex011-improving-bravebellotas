@@ -2,16 +2,18 @@ import React from 'react';
 import TextField from '@mui/material/TextField';
 import '../Styles/CurrentGoal.css';
 
+//import '../../Styles/CommitmentsTable.css';
+
 
 
 export default function CurrentGoal() {
   return (
     <div className='current-goal'>
+       <h2 className='title-current-goal'>Current Goal</h2>
       <TextField
-          label="Career Ambition"
           id="filled-full-width"
           style={{ margin: 8 }}
-          placeholder="Aprender a crecer a cada paso!"
+          placeholder="Learn to create and iterate at each step..."
           helperText=""
           fullWidth
           margin="normal"
