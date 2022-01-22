@@ -1,5 +1,26 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import React, {
+import { useEffect, useState } from "react";
+import { onAuthStateChanged } from "@firebase/auth";
+
+//import { useNavigate } from "react-router-dom";
+import { auth } from "../Firebase/firebase-config";
+
+
+export default function useAuth() {  
+    const [ currentUser, setCurrentUser ] = useState();
+  
+    useEffect(() => {
+      const unsub = onAuthStateChanged(auth, user => setCurrentUser(user));
+      return unsub;
+    }, [])
+  
+    return currentUser;  
+}
+
+
+
+/* eslint-disable react-hooks/exhaustive-deps */
+/* import React, {
     createContext,
     useState,
     useEffect,
@@ -36,8 +57,8 @@ import React, {
     );
   
     return <AuthDataContext.Provider value={authDataValue} {...props} />;
-  };
-  
+  }; 
   export const useAuthDataContext = () => useContext(AuthDataContext);
   
-  export default AuthDataProvider;
+  export default AuthDataProvider;*/
+  
