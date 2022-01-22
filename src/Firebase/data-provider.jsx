@@ -1,18 +1,24 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-/* import { db } from "../../Firebase/firebase-config";
-import { collection, getDocs } from "firebase/firestore";
-import { useEffect, useState, useContext, useMemo, createContext } from "react";
+import {
+  collection,
+  getDocs,
+  deleteDoc,
+  doc,
+  updateDoc,
+} from "firebase/firestore";
+import { db } from "./firebase-config";
+import { useEffect, useState, useContext, createContext } from "react";
+import { authUser } from "./CurrentUser";
 
-export const DataContext = createContext(null);
-const initialData = {};
+export const FirestoreContext = createContext(null);
 
-const DataProvider = (props) => {
-  const [data, setData] = useState(initialData);
+const FirestoreProvider = (props) => {
+  const initialData = false;
+  const initialUser = false;
+  const [data, setData] = useState();
+  const [currentUser, setCurrentUser] = useState();
 
-  const onLogout = () => setData(initialData);
-  const onChange = (newData) => setData(newData);
-
-  const firestore = async () => {
+  const getFirestore = async () => {
     try {
       const querySnapshot = await getDocs(collection(db, "users"));
       querySnapshot.forEach((doc) => {
@@ -24,15 +30,47 @@ const DataProvider = (props) => {
     }
   };
 
+  const editFirestore = async (docId, changes) => {
+    const userRef = doc(db, "users", docId);
+    await updateDoc(userRef, {
+      changes,
+    });
+  };
+
+  const deleteFirestore = async (id) => {
+    try {
+      if (window.confirm("Deseas eliminar la información")) {
+        await deleteDoc(doc(db, "users", id));
+      }
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  const onLogout = () => setData(initialData);
+
   useEffect(() => {
-    firestore();
-  }, [onChange]);
+    /*
+    if (authUser()) */ getFirestore();
+    /* else {
+      setData(initialData);
+      setCurrentUser(initialUser);
+    } */
+  }, []);
 
-  const dataValue = useMemo(() => ({ ...data, onChange, onLogout }), [data]);
-
-  return <DataContext.Provider value={dataValue} {...props} />;
+  const value = {
+    data,
+    editFirestore,
+    deleteFirestore,
+    onLogout,
+  };
+  return (
+    <FirestoreContext.Provider value={value}>
+      {props.children}
+    </FirestoreContext.Provider>
+  );
 };
 
-export const useDataContext = () => useContext(DataContext);
+export const useFirestoreContext = () => useContext(FirestoreContext);
 
-export default DataProvider; */
+export default FirestoreProvider;
