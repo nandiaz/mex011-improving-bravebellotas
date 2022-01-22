@@ -12,7 +12,7 @@ import {
 import EditTableRow from "./EditTableRow";
 import EditTableHead from "./EditTableHead";
 import React from "react";
-import TableInputs from "./TableInputs";
+// import TableInputs from "./TableInputs";
 
 export default function EditTable({ title, setNewData, data }) {
   // This is a mock, it will be received from firestore
