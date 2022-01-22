@@ -1,5 +1,6 @@
 import React from 'react';
-import { Table, TableContainer, TableHead, TableCell, TableRow, Container } from '@material-ui/core';
+import { Table, TableContainer, TableHead, TableCell, TableRow, TableBody, Container } from '@material-ui/core';
+import Button from '@mui/material/Button';
 import '../../Styles/CommitmentsTable.css';
 
 export default function CommitmentsTable() {
@@ -18,6 +19,35 @@ export default function CommitmentsTable() {
             </TableRow>
           </TableHead>
 
+          <TableBody>
+              <TableRow>
+              <TableCell>Q4</TableCell>
+              <TableCell>Documentarse</TableCell>
+              <TableCell>Activo</TableCell>
+              <TableCell><Button variant="contained" color="success">Editar</Button></TableCell>
+              </TableRow>
+
+              <TableRow>
+              <TableCell>Q3</TableCell>
+              <TableCell>Certificaciones Corporativas</TableCell>
+              <TableCell>Pausado</TableCell>
+              <TableCell><Button variant="contained" color="warning">Editar</Button></TableCell>
+              </TableRow>
+
+              <TableRow>
+              <TableCell>Q2</TableCell>
+              <TableCell>Certificaciones Udemy</TableCell>
+              <TableCell>Inactivo</TableCell>
+              <TableCell><Button variant="outlined" color="error" >Editar</Button></TableCell>
+              </TableRow>
+
+              <TableRow>
+              <TableCell>Q1</TableCell>
+              <TableCell>Certificaciones Platzy</TableCell>
+              <TableCell>Inactivo</TableCell>
+              <TableCell><Button variant="outlined" color="error">Editar</Button></TableCell>
+              </TableRow>
+          </TableBody>
           {/* <TableBody>
             {data.map(###=>(
               <TableRow key={###.id}>
