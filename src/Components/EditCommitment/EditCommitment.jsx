@@ -1,35 +1,18 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import NavBar from "./NavBar";
 import { Box } from "@mui/material";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import EditTable from "./EditTable/EditTable";
-import { db } from "../../Firebase/firebase-config";
-import { collection, getDocs } from "firebase/firestore";
+import {useFirestoreContext} from '../../Firebase/data-provider'
 
 export default function EditCommitment() {
-  const [data, setData] = useState();
+  const {data} = useFirestoreContext()
   const [newData, setNewData] = useState({});
 
   // Trial values
   const titles = ["focus", "plan", "practice", "accountablity", "log"];
 
-  const firestore = async () => {
-    try {
-      const querySnapshot = await getDocs(collection(db, "users"));
-      querySnapshot.forEach((doc) => {
-        console.log(doc.data())
-        setData(doc.data());
-        return doc.data()
-      });
-    } catch (err) {
-      console.log(err);
-      return(err)
-    }
-  };
-
-  useEffect(() => {
-    firestore();
-  }, []);
+  console.log(data)
 
   return (
     <Box component="main">
