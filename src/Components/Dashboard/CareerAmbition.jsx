@@ -6,7 +6,24 @@ import Stack from '@mui/material/Stack';
 import Container from '@mui/material/Container';
 
 
+//importar la base de datos
+//import {db} from "firebase-config.js"
+
+
+//pasar el parametropara hacer visible el career
 export default function CareerAmbition() {
+  //traer el carrer ambition
+  //const {id, career-ambition }= career
+
+  // funcion para traer el CAREER para ser editado
+  //const getPost = (id) => db.collection('stories').doc(id).get();
+
+  // funcion para actualizar una tarea
+  //const updatePost = (id, updateObject) => db.collection('stories').doc(id).update(updateObject);
+
+  //funcion para editarlo
+
+  
 
   const [myValueCareer, setMyValueCareer] = useState('');
 
