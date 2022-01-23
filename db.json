@@ -5,10 +5,10 @@
       "user": "squad@braveBellotas.com",
       "status": true,
       "name": "Become a fullstack dev",
-      "description": " I want to learn backend development to become a fullstack dev",
+      "description": "I want to learn backend development to become a fullstack dev"
     }
   ],
-  "periods": [
+  "Period": [
     {
       "id": "Q1-2022",
       "ambition": 1,

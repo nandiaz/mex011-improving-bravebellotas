@@ -7,15 +7,14 @@ import { useDataContext } from "../../Hooks/json-provider";
 
 export default function EditCommitment() {
   const { data, selectedPeriod } = useDataContext();
-  const [newData, setNewData] = useState({});
   const [periodData, setPeriodData] = useState();
 
-  useEffect(() => {
+  /* useEffect(() => {
     if (data) {
-      setPeriodData(data["periods"][selectedPeriod]);
+      setPeriodData(data);
     }
-  }, [data]);
-  console.log(periodData);
+  }, [data]); */
+  console.log(data.accountability[0]);
 
   return (
     <Box component="main">
@@ -26,7 +25,7 @@ export default function EditCommitment() {
               key={title + index}
               title={title}
               data={periodData}
-              setNewData={setNewData}
+              setNewData={setPeriodData}
             />
           ))
         : null}
