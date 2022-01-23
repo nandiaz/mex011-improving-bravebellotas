@@ -5,14 +5,31 @@ import Button from '@mui/material/Button';
 import Stack from '@mui/material/Stack';
 import Container from '@mui/material/Container';
 
+import { useDataContext } from "../../Hooks/json-provider";
+import { useState, useEffect } from "react";
+
+
 
 //importar la base de datos
 //import {db} from "firebase-config.js"
 
-
 //pasar el parametropara hacer visible el career
 export default function CareerAmbition() {
-  //traer el carrer ambition
+ //hook para la data
+  const { data, setData } = useDataContext();
+   //traer el carrer ambition
+  const [career, setCareer]=useState({
+    name:"",
+    description:""
+  })
+
+  useEffect(() => {
+    if (data) {
+      setCareer(data["name","description"][setData]);
+    }
+  }, [data]);
+  console.log('Estoy en los goals');
+
   //const {id, career-ambition }= career
 
   // funcion para traer el CAREER para ser editado
@@ -22,8 +39,6 @@ export default function CareerAmbition() {
   //const updatePost = (id, updateObject) => db.collection('stories').doc(id).update(updateObject);
 
   //funcion para editarlo
-
-  
 
   const [myValueCareer, setMyValueCareer] = useState('');
 
@@ -40,6 +55,11 @@ export default function CareerAmbition() {
       <br/>
       <br/> 
         <TextField
+
+      key={title + description}
+      title={title}
+      data={description}
+
           label="I am your goal write me...!"
           id="filled-full-width"
           name="career"
