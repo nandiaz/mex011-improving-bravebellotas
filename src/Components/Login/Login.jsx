@@ -39,6 +39,7 @@ export default function Home() {
       navigate("/");
       console.log(loginEmail);
     } catch (error) {
+      navigate("/login");
       setError("The password or username is not valid");
     }
   };

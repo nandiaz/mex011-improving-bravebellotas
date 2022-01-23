@@ -4,12 +4,16 @@
     font-family: 'Roboto', sans-serif;
 }
 
+.title-value-career-ambition {
+    font-family: 'Roboto', sans-serif;
+    color:#001E52;
+}
 .career-ambition {
     position: absolute;
-    width: 832px;
+    width: 911px;
     height: 99px;
     left: 462px;
-    top: 147px;
+    top: 43px;
 }
 
 .btn-career-ambition {

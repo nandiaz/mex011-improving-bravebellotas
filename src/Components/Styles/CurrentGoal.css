@@ -6,8 +6,8 @@
 
 .current-goal {
     position: absolute;
-    width: 832px;
-    height: 103px;
+    width: 911px;
     left: 462px;
-    top: 365px;
+    top: 241px;
+    max-height: 100vh;
 }

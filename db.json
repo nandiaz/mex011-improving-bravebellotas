@@ -1,0 +1,89 @@
+{
+  "Career-Ambitions": [
+    {
+      "id": 1,
+      "user": "squad@braveBellotas.com",
+      "status": true,
+      "name": "Become a fullstack dev",
+      "description": "I want to learn backend development to become a fullstack dev"
+    }
+  ],
+  "Period": [
+    {
+      "id": "Q1-2022",
+      "ambition": 1,
+      "user": "squad@braveBellotas.com",
+      "status": true
+    }
+  ],
+  "Main-Goal": [
+    {
+      "id": 1,
+      "user": "squad@braveBellotas.com",
+      "ambition": 1,
+      "period": "Q1-2022",
+      "name": "Learn the basics of Python"
+    }
+  ],
+  "Areas-Of-Focus": [
+    {
+      "id": 1,
+      "user": "squad@braveBellotas.com",
+      "ambition": 1,
+      "period": "Q1-2022",
+      "Categories": ["Tech skills"]
+    }
+  ],
+  "Action-Plan": [
+    {
+      "id": 1,
+      "user": "squad@braveBellotas.com",
+      "ambition": 1,
+      "period": "Q1-2022",
+      "SMART-Goal": "Read a chapter of a book",
+      "By-When": "2022-01-23T09:33:47.672Z",
+      "status": false
+    }
+  ],
+  "Accountability": [
+    {
+      "id": 1,
+      "user": "squad@braveBellotas.com",
+      "ambition": 1,
+      "period": "Q1-2022",
+      "Contact": "Yanet",
+      "Frequency": "Once a week",
+      "Via": "Slack"
+    }
+  ],
+  "Planned-Deliberate-Practices": [
+    {
+      "id": 1,
+      "user": "squad@braveBellotas.com",
+      "ambition": 1,
+      "period": "Q1-2022",
+      "Action/Practice/Habit": "Read 1 hour a day",
+      "Frequency": "Everyday"
+    }
+  ],
+  "Deliberate-Practice-Log": [
+    {
+      "id": 1,
+      "user": "squad@braveBellotas.com",
+      "ambition": 1,
+      "period": "Q1-2022",
+      "Actions/Practices/Habits": "Read for 30 minutes today",
+      "Date": "2022-01-23T09:33:47.672Z",
+      "Outcome": "I understood most of it"
+    }
+  ],
+  "users": [
+    {
+      "email": "squad@braveBellotas.com",
+      "id": 1,
+      "name": "braveBellota",
+      "photo": "",
+      "mentor": false
+    }
+  ]
+}
