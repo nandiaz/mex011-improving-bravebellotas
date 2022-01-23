@@ -1,7 +1,10 @@
 import * as React from 'react';
+import "../Styles/NavBar.css";
 import Box from '@mui/material/Box';
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
+import DashboardIcon from '@mui/icons-material/Dashboard';
+import { IconButton } from '@material-ui/core';
 
 function LinkTab(props) {
   return (
@@ -23,13 +26,16 @@ export default function NavBar() {
   };
 
   return (
-    <Box sx={{ width: '100%' }}>
-      <Tabs value={value} onChange={handleChange} aria-label="nav bar example">
-        <LinkTab label="Areas of focus" href="/drafts" />
-        <LinkTab label="Action plan" href="/trash" />
-        <LinkTab label="Planned deliberate practices" href="/spam" />
-        <LinkTab label="Accountability" href="/drafts" />
-        <LinkTab label="Deliberate practice log" href="/trash" />
+    <Box style={{ backgroundColor: '#3DB39E'}} sx={{ width: '100%' }}>
+      <Tabs value={value} onChange={handleChange} aria-label="nav bar">
+        <IconButton>
+          <DashboardIcon/>
+        </IconButton>
+        <LinkTab label="Areas of focus" href="/focus" />
+        <LinkTab label="Action plan" href="/plan" />
+        <LinkTab label="Planned deliberate practices" href="/practice" />
+        <LinkTab label="Accountability" href="/accountability" />
+        <LinkTab label="Deliberate practice log" href="/log" />
       </Tabs>
     </Box>
   );
