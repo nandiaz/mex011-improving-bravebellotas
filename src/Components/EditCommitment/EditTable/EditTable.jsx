@@ -4,17 +4,18 @@ import {
   Table,
   Paper,
   Input,
-  TextArea,
+  Typography,
   InputLabel,
   FormControl,
   TableContainer,
 } from "@mui/material";
 import EditTableRow from "./EditTableRow";
 import EditTableHead from "./EditTableHead";
-import React, { useState } from "react";
+import React from "react";
+// import TableInputs from "./TableInputs";
 
-export default function EditTable({title}) {
-  // Se recibirá de firestore, esto es sólo un mock
+export default function EditTable({ title, setNewData, data }) {
+  // This is a mock, it will be received from firestore
 
   const actionTableInfo = [
     {
@@ -29,6 +30,7 @@ export default function EditTable({title}) {
 
   const headValues = Object.keys(actionTableInfo[0]);
   const rows = actionTableInfo.map((obj) => Object.values(obj));
+  
 
   return (
     <>
@@ -36,7 +38,9 @@ export default function EditTable({title}) {
         component={Paper}
         sx={{ width: 1 / 3, mx: "auto", my: "1em" }}
       >
-        <h2 id={title}>{title}</h2>
+        <Typography id={title} sx={{ textAlign: "center" }}>
+          {title}
+        </Typography>
         <Table sx={{ width: 7 / 8, m: 2 }} aria-label="simple table">
           <EditTableHead headValues={headValues} />
           <EditTableRow rows={rows} />
@@ -59,21 +63,9 @@ export default function EditTable({title}) {
             justifyContent: "space-between",
           }}
         >
-          {headValues.map((input, index) => (
-            <>
-              <FormControl sx={{ width: 4 / 9, minWidth: "10em" }} key={input}>
-                <InputLabel htmlFor={`${input}-label`} key={index}>
-                  {input}
-                </InputLabel>
-                <Input
-                  id={`${input}-label`}
-                  type="text"
-                  aria-label={input}
-                  key={index + 1}
-                />
-              </FormControl>
-            </>
-          ))}
+          {/* {headValues.map((input, index) => (
+            <TableInputs input={input} key={input + index} />
+          ))} */}
         </Box>
         <Fab
           color="primary"
