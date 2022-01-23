@@ -39,7 +39,7 @@ export default function EditTable({ title, setNewData, data }) {
         sx={{ width: 1 / 3, mx: "auto", my: "1em" }}
       >
         <Typography id={title} sx={{ textAlign: "center" }}>
-          {data ? data["career-ambitions"]["career-ambition-1"]["periods"]["period1"]["main-goal"]["description"] : null}
+          {title}
         </Typography>
         <Table sx={{ width: 7 / 8, m: 2 }} aria-label="simple table">
           <EditTableHead headValues={headValues} />

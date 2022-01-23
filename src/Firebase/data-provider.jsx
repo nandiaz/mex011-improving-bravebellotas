@@ -22,7 +22,7 @@ const FirestoreProvider = (props) => {
     try {
       const querySnapshot = await getDocs(collection(db, "users"));
       querySnapshot.forEach((doc) => {
-        console.log(doc.data());
+        // console.log(doc.data());
         setData(doc.data());
       });
     } catch (err) {

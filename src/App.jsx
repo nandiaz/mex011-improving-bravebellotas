@@ -3,6 +3,7 @@ import { auth } from "./Firebase/firebase-config";
 import { Route, Routes } from "react-router-dom";
 import { ThemeProvider, createTheme } from "@material-ui/core";
 import FirestoreProvider from "./Firebase/data-provider";
+import DataProvider from "./Hooks/json-provider";
 
 import Login from "./Components/Login/Login";
 import Dashboard from "./Components/Dashboard/Dashboard";
@@ -37,18 +38,20 @@ function App() {
   const [currentUser, setCurrentUser] = useState();
   auth.onAuthStateChanged((user) => {
     setCurrentUser(user);
-    console.log(user);
+    // console.log(user);
   });
   return (
     <>
       <ThemeProvider theme={theme}>
         <FirestoreProvider>
-          <Routes>
-            <Route exact path="/login" element={<Login />} />
-            <Route exact path="/" element={<Dashboard />} />
-            <Route exact path="/edit-commitment" element={<EditTable />} />
-            <Route exact path="*" element={<>404 Page not Found</>} />
-          </Routes>
+          <DataProvider>
+            <Routes>
+              <Route exact path="/login" element={<Login />} />
+              <Route exact path="/" element={<Dashboard />} />
+              <Route exact path="/edit-commitment" element={<EditTable />} />
+              <Route exact path="*" element={<>404 Page not Found</>} />
+            </Routes>
+          </DataProvider>
         </FirestoreProvider>
       </ThemeProvider>
     </>
