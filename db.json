@@ -1,0 +1,52 @@
+{
+  "Career-Ambitions": {
+    "squad@braveBellotas.com": [
+      {
+        "status": true,
+        "name": "Become a fullstack dev",
+        "description": " I want to learn backend development to become a fullstack dev",
+        "periods": {
+          "Q1-2022": {
+            "status": true,
+            "Main-Goal": "Learn Python basics",
+            "Areas-Of-Focus": {
+              "categories": ["Tech skills"]
+            },
+            "Action-Plan": [
+              {
+                "SMART-Goal": "Read a chapter of a book",
+                "By-When": "2022-01-23T09:33:47.672Z",
+                "status": false
+              }
+            ],
+            "Accountability": {
+              "Contact": "Yanet",
+              "Frequency": "Once a week",
+              "Via": "Slack"
+            },
+            "Planned-Deliberate-Practices": [
+              {
+                "Action/Practice/Habit": "Read 1 hour a day",
+                "Frequency": "Everyday"
+              }
+            ],
+            "Deliberate-Practice-Log": {
+              "Actions/Practices/Habits": "Read for 30 minutes today",
+              "Date": "2022-01-23T09:33:47.672Z",
+              "Outcome": "I understood most of it"
+            }
+          }
+        }
+      }
+    ]
+  },
+  "users": [
+    {
+      "email": "squad@braveBellotas.com",
+      "id": 1,
+      "name": "braveBellota",
+      "photo": "",
+      "mentor": false
+    }
+  ]
+}

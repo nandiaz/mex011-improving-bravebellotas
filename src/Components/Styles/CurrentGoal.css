@@ -1,0 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+
+.title-current-goal {
+    font-family: 'Roboto', sans-serif;
+}
+
+.current-goal {
+    position: absolute;
+    width: 832px;
+    height: 103px;
+    left: 462px;
+    top: 241px;
+}
