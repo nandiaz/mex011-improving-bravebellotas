@@ -11,7 +11,7 @@ import { useDataContext } from "../../Hooks/json-provider";
 export default function EditCommitment() {
   const id = useParams();
 
-  const { data, currentAmbition: ambition, selectedPeriod } = useDataContext();
+  const { data, currentAmbition, selectedPeriod, error, setCurrentAmbition } = useDataContext();
   const [periodData, setPeriodData] = useState();
 
   const endpoints = [
@@ -23,11 +23,16 @@ export default function EditCommitment() {
     "Accountability",
     "Planned-Deliberate-Practices",
     "Deliberate-Practice-Log",
-  ]; 
+  ];
 
   useEffect(() => {
     if (data && data !== {}) {
-    }
+      console.log(data.ambition);
+      data.ambition.forEach((info) => {
+          if (info.status === true) console.log("holi")/* setCurrentAmbition(info.id) */;
+      });
+      console.log(currentAmbition)
+    } else if(error) console.log(error)
   }, [data]);
 
   return (
@@ -38,19 +43,17 @@ export default function EditCommitment() {
           <Typography>
             Main Goal:{" "}
             {data
-              ? data.mainGoal.filter(
+              ? data.mainGoal/* .filter(
                   // something doesn't let it render all the times
                   // add current user filter
                   (info) => info.ambition === ambition
-                )[0].name
+                ) */[0]["name"]
               : null}
           </Typography>
           <Typography>
             Period:{" "}
             {data
-              ? data.period.filter(
-                  (data) => data.ambition === ambition
-                )[0].id
+              ? data.period/* .filter((data) => data.ambition === ambition) */[0].id
               : null}
           </Typography>
         </>

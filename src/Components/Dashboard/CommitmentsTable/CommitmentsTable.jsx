@@ -5,7 +5,14 @@ import '../../Styles/CommitmentsTable.css';
 import ProgressBar from '../CommitmentsTable/ProgressBar';
 
 
+
+
+//importar la base de datos
+//import {db} from "firebase-config.js"
+
+//pasar los parametros para el periodo, smartgoal, estatus
 export default function CommitmentsTable() {
+
   // hook para la data
   const [data, setData] = useState([]);
   
@@ -31,6 +38,7 @@ export default function CommitmentsTable() {
  const editActions = () => {
     console.log('voy para Actions');
   }
+
 
 
   return (
@@ -79,6 +87,7 @@ export default function CommitmentsTable() {
               <TableCell><Button variant="contained" color="secondary" className='btn-edit-actions'>Editar</Button></TableCell>
               </TableRow>
           </TableBody>
+
         </Table>
       </TableContainer>
     </Container>
