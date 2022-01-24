@@ -1,3 +1,7 @@
+import SideBar from "../SideBar";
 export default function CalendarHeader() {
-  return (<>CalendarInfo</>);
+  return (<>
+    <SideBar/>
+    
+  </>);
 }
