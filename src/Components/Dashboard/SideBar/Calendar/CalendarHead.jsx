@@ -12,7 +12,7 @@ import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
 const CalendarHead = props => {
 
     const {allMonths, setMonth, toggleMonthSelect, currentMonth, currentYear, showMonthTable} = props;
-     console.log(allMonths)
+     //console.log(allMonths)
     let months = [];
     
     allMonths.map(month => (

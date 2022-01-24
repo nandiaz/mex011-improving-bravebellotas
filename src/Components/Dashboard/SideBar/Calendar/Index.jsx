@@ -6,6 +6,7 @@ import Paper from '@material-ui/core/Paper';
 import CalendarBody from './CalendarBody';
 import CalendarHead from './CalendarHead';
 import SideBar from '../SideBar';
+import { useDataContext } from "../../../../Hooks/json-provider";
 import "../../../Styles/Calendar.css"
 
 
@@ -15,6 +16,12 @@ const Calendars = () => {
         month: moment().month()
     };
 
+    /*** DATA ***/
+    const { data, activitiesDay } = useDataContext();
+    console.log(data.practiceLog[0].Date)
+    console.log(data.practiceLog[0].period)
+    
+   
     /*** HOOKS ***/
     const [dateObject, setdateObject] = useState(moment());
     const [showMonthTable, setShowMonthTable] = useState(false);
@@ -82,7 +89,7 @@ const Calendars = () => {
                         
                     />
         </Grid>
-        <Grid item xs={12} md={7} justifyContent='space-between' >
+        <Grid item xs={12} md={7}>
                 <Paper className="paper-activities">
                 <h3>Activities on {selectedDay.day}-{selectedDay.month + 1}</h3>
                 </Paper>

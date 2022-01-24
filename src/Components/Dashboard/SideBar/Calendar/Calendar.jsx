@@ -10,7 +10,7 @@ export default function Calendar() {
   return (<div className='calendarInfo'>
     <img className="calendar" src={process.env.PUBLIC_URL + '/calendar.png'}/>
     <br></br>
-          <Button fullWidth size="large" variant="contained" component={Link} to= './CalendarInfo'>
+          <Button fullWidth size="large" variant="contained" component={Link} to= './calendarInfo'>
             See all
           </Button>
         
