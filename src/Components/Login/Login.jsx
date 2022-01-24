@@ -66,7 +66,7 @@ export default function Home() {
         </div>
         <div className="right-login">
           <h2 className="login-hi">Hi, Improver!</h2>
-          <h3 className="login-text">Login to start</h3>
+          <h3 className="login-text">Login to start:</h3>
           <form className="form-login" onSubmit={handleSubmit}>
 
             <TextField
