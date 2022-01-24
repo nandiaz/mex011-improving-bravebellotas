@@ -52,6 +52,8 @@ export default function Home() {
           </picture>
         </div>
         <div className="right-login">
+          <h2 className="excellence-slogan">“Excellence, Dedication,</h2>
+          <h2 className="involvement-slogan">and Involvement”</h2>
           <h2 className="login-hi">Hi, Improver!</h2>
           <h3 className="login-text">Login to start:</h3>
           <form className="form-login" onSubmit={handleSubmit}>
@@ -63,7 +65,7 @@ export default function Home() {
               placeholder="Enter your email address"
               required
               value={loginEmail}
-              className="input-log"
+              className="email-input"
               onChange={(e) => setLoginEmail(e.target.value)}
             />
             <br />
@@ -75,7 +77,7 @@ export default function Home() {
               placeholder="Enter your password"
               required
               value={loginPassword}
-              className="input-log"
+              className="password-input"
               onChange={(e) => setLoginPassword(e.target.value)}
               variant="filled"
               size="small"
