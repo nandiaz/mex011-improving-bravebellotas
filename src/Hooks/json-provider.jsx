@@ -33,7 +33,7 @@ const DataProvider = (props) => {
     try {
       const allInfo = await (await fetch(url, options)).json();
       const users = await (
-        await fetch("http://localhost:5000/users", options)
+        await fetch("http://localhost:5001/users", options)
       ).json();
       const user = Object.assign(
         {},
@@ -60,7 +60,7 @@ const DataProvider = (props) => {
   };
 
   useEffect(() => {
-    getData("http://localhost:5000/Career-Ambitions", "GET");
+    getData("http://localhost:5001/Career-Ambitions", "GET");
   }, []);
 
   const value = {
