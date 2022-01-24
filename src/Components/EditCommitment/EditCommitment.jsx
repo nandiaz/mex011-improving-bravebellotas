@@ -1,25 +1,30 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import NavBar from "./NavBar";
 
-import { Box } from "@mui/material";
-import { useState } from "react";
-
+import { Box, Typography } from "@mui/material";
+import React, { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
 
 import EditTable from "./EditTable/EditTable";
 import { useDataContext } from "../../Hooks/json-provider";
 
-//importacion para qeu el boton de 90commitment venga aca
-import {useParams} from 'react-router-dom';
-
-
 export default function EditCommitment() {
+  const id = useParams();
 
-
-  const id = useParams()
-
-  const { data} = useDataContext();
+  const { data, currentAmbition: ambition, selectedPeriod } = useDataContext();
   const [periodData, setPeriodData] = useState();
-  
+
+  const endpoints = [
+    "Career-Ambitions",
+    "Period",
+    "Main-Goal",
+    "Areas-Of-Focus",
+    "Action-Plan",
+    "Accountability",
+    "Planned-Deliberate-Practices",
+    "Deliberate-Practice-Log",
+  ]; 
+
   useEffect(() => {
     if (data && data !== {}) {
     }
@@ -34,9 +39,9 @@ export default function EditCommitment() {
             Main Goal:{" "}
             {data
               ? data.mainGoal.filter(
-                // something doesn't let it render all the times
-                // add current user filter
-                  (info) => info.ambition === currentAmbition
+                  // something doesn't let it render all the times
+                  // add current user filter
+                  (info) => info.ambition === ambition
                 )[0].name
               : null}
           </Typography>
@@ -44,7 +49,7 @@ export default function EditCommitment() {
             Period:{" "}
             {data
               ? data.period.filter(
-                  (data) => data.ambition === currentAmbition
+                  (data) => data.ambition === ambition
                 )[0].id
               : null}
           </Typography>
