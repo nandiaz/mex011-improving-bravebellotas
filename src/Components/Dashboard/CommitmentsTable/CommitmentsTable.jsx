@@ -1,32 +1,36 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Table, TableContainer, TableHead, TableCell, TableRow, TableBody, Container } from '@material-ui/core';
 import Button from '@mui/material/Button';
 import '../../Styles/CommitmentsTable.css';
 import ProgressBar from '../CommitmentsTable/ProgressBar';
 
-//importar la base de datos
-//import {db} from "firebase-config.js"
 
-//pasar los parametros para el periodo, smartgoal, estatus
 export default function CommitmentsTable() {
+  // hook para la data
+  const [data, setData] = useState([]);
+  
+  let url = "http://localhost:5000/Period" // campo "id"
+  // let urlOne = "http://localhost:5000/Main-Goal" // campo "name"
+  // let urlTwo = "http://localhost:5000/Action-Plan"; // campo "status"
+
+
+  const fetchApi = async () => {
+    const response =await fetch(url)
+    console.log(response.status)
+    const responseJSON= await response.json();
+    setData(responseJSON)
+    console.log(responseJSON)
+  }
+
+  useEffect (() => {
+    fetchApi()
+  }, [])
+
 
 //funcion para el boton editar nos lleve a la ruta de tablas
-// const btnsEdit = newPost.querySelectorAll('.a-edit');
-//       btnsEdit.forEach((btn) => {
-//         btn.addEventListener('click', (e) => {
-//           e.preventDefault();
-//           idPostToEdit = e.currentTarget.dataset.id;
-//           onNavigate('/edit-commitment');
-//         });
-
-
-//const btnsEdit = actions.querySelectorAll('.btn-edit-actions');
-//       btnsEdit.forEach((btn) => {
-//         btn.addEventListener('click', (e) => {
-//           e.preventDefault();
-//           idPostToEdit = e.currentTarget.dataset.id;
-//           onNavigate('/edit-commitment');
-//         });
+ const editActions = () => {
+    console.log('voy para Actions');
+  }
 
 
   return (
@@ -45,41 +49,36 @@ export default function CommitmentsTable() {
           </TableHead>
           <TableBody>
               <TableRow >
-              <TableCell>period</TableCell>
-              <TableCell>goal<br/><ProgressBar/></TableCell>
+              <TableCell>Q4</TableCell>
+              <TableCell>Aprender perticiones, helpers y CORS <br/> <br/><ProgressBar/></TableCell>
+              <TableCell>status</TableCell>
+              <TableCell><Button variant="contained" color="secondary" className='btn-edit-actions' onClick={editActions}>Editar</Button></TableCell>
+              </TableRow>
+          </TableBody>
+          <TableBody>
+              <TableRow >
+              <TableCell>Q3</TableCell>
+              <TableCell>Aprender React <br/> <br/><ProgressBar/></TableCell>
               <TableCell>status</TableCell>
               <TableCell><Button variant="contained" color="secondary" className='btn-edit-actions'>Editar</Button></TableCell>
               </TableRow>
           </TableBody>
-
-
-          {/* //crear por cada coleccion creada, crear un fila en la tablas solo para ver
-          //los datos */}
-
-          {/* <TableBody>
+          <TableBody>
               <TableRow >
-              <TableCell>{.period}</TableCell>
-              <TableCell>{.goal}<ProgressBar/></TableCell>
-              <TableCell>{.status}</TableCell>
-              <TableCell><Button variant="contained" color="success" className='btn-edit-actions'>Editar</Button></TableCell>
+              <TableCell>Q2</TableCell>
+              <TableCell>Aprender import y modularizacion <br/> <br/><ProgressBar/></TableCell>
+              <TableCell>status</TableCell>
+              <TableCell><Button variant="contained" color="secondary" className='btn-edit-actions'>Editar</Button></TableCell>
               </TableRow>
-          </TableBody> */}
-
-          {/* <TableBody>
-            {data.map(###=>(
-              <TableRow key={###.id}>
-              <TableCell>{###.periodo}</TableCell>
-              <TableCell>{###.main}</TableCell>
-              <TableCell>{###.status}</TableCell>
-              <TableCell>{###.actions}</TableCell>
-              <TableCell>
-                <Edit/>
-                &nbsp;&nbsp;&nbsp;
-                <Delete/>
-              </TableCell>
+          </TableBody>
+          <TableBody>
+              <TableRow >
+              <TableCell>Q1</TableCell>
+              <TableCell>Aprender manejo de DB <br/> <br/><ProgressBar/></TableCell>
+              <TableCell>status</TableCell>
+              <TableCell><Button variant="contained" color="secondary" className='btn-edit-actions'>Editar</Button></TableCell>
               </TableRow>
-            ))}
-          </TableBody> */}
+          </TableBody>
         </Table>
       </TableContainer>
     </Container>

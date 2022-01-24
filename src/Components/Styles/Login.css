@@ -1,24 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@500&family=Space+Grotesk:wght@500;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@500&display=swap');
 .nav-login{
     width: 100%;
-    height: 18vh; 
-    padding: .5rem;   
+    height: 18vh;
+    padding: .5rem;
 }
 .log-in{
     width: 100%;
-    height: 82vh;    
+    height: 82vh;
     display: flex;
 }
 .logo-login-n{
     width: auto;
-    height: 100%;
-    padding: 5px;
+    height: 120%;
+    padding: 2rem;
+    margin-left: 1.5rem;
 }
 .left-login{
-    width: 55%;  
-    height: 100%;        
+    width: 55%;
+    height: 100%;
 }
 .img-login{
     display: flex;
@@ -27,44 +28,48 @@
     margin-top: 1rem;
 }
 .path-login{
-    margin-left: .5rem ;
-    width: 85%;
+    position: fixed;
+    margin-left: 5rem ;
+    width: 45%;
     height: 57vh;
-    
+    bottom: 0rem;
 }
 .p-career{
     text-shadow: 0px 1px 1px rgba(0, 0, 0, 0.25);
-    font-size: 2.7rem;
+    font-size: 3rem;
     font-weight: bold;
-    color: #4597D3;  
-    font-family: 'Space Grotesk', sans-serif;   
-    margin-top: .5rem;
-    margin-left: 4.5rem;
+    color: #4597D3;
+    font-family: 'Space Grotesk', sans-serif;
+    margin-top: 2rem;
+    margin-left: 11.5rem;
 }
 .p-planning{
     text-shadow: 0px 1px 1px rgba(0, 0, 0, 0.25);
-    font-size: 2.7rem;
+    font-size: 3.2rem;
     font-weight: bold;
     font-family: 'Space Grotesk', sans-serif;
     color: #3DB39E;
-    margin-left: 9rem;
+    margin-left: 18rem;
 }
 .right-login{
     width: 45%;
 }
 .login-hi{
     color: #3DB39E;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Space Grotesk', sans-serif;
     text-align:center;
-    font-size: 2rem;
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-top: 2rem;
     margin-right: 3rem;
-    padding: 2rem;
+    padding: 1rem;
 }
 .login-text{
-    color: #4597D3;  
-    font-family: 'Roboto', sans-serif;
-    font-size: 1.3rem;
-    padding-bottom: 2rem;
+    color: #4597D3;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 2rem;
+    margin-top: 0rem;
+    margin-left: 12.3rem;
 }
 .form-login{
     display: flex;
@@ -73,18 +78,19 @@
     align-items: center;
 }
 .input-log{
-    width: 70%;        
+    width: 55%;
     height: 2rem;
 }
 .btt-submit{
-    width: 60%;
+    width: 55%;
     margin: auto;
+    height: 3rem;
     font-size: 5rem;
 }
 .error-login{
     padding: 2rem;
     color: #E37948;
     font-size: 1rem;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Open Sans', sans-serif;
     font-weight: 900;
 }
