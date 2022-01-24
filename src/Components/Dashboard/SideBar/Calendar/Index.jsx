@@ -17,9 +17,9 @@ const Calendars = () => {
     };
 
     /*** DATA ***/
-    const { data, activitiesDay } = useDataContext();
+    /* const { data, activitiesDay } = useDataContext();
     console.log(data.practiceLog[0].Date)
-    console.log(data.practiceLog[0].period)
+    console.log(data.practiceLog[0].period) */
     
    
     /*** HOOKS ***/
