@@ -1,10 +1,13 @@
-import React, { useState } from 'react';
-import TextField from '@mui/material/TextField';
+import React, { useState, useEffect } from 'react';
+//import TextField from '@mui/material/TextField';
 import '../Styles/CareerAmbition.css';
 import Button from '@mui/material/Button';
 import Stack from '@mui/material/Stack';
 import Container from '@mui/material/Container';
+import Box from '@mui/material/Box';
 
+//import { useDataContext } from "../../Hooks/json-provider";
+//import { helpHttp } from "../../helpers/helpers";
 
 //importar la base de datos
 //import {db} from "firebase-config.js"
@@ -12,51 +15,56 @@ import Container from '@mui/material/Container';
 
 //pasar el parametropara hacer visible el career
 export default function CareerAmbition() {
-  //traer el carrer ambition
-  //const {id, career-ambition }= career
 
-  // funcion para traer el CAREER para ser editado
-  //const getPost = (id) => db.collection('stories').doc(id).get();
+ //hook para la data
+ const [data, setData] = useState([]);
+  //let api = helpHttp();
+  let url = "http://localhost:5000/Career-Ambitions";
 
-  // funcion para actualizar una tarea
-  //const updatePost = (id, updateObject) => db.collection('stories').doc(id).update(updateObject);
 
-  //funcion para editarlo
+  const fetchApi = async () => {
+    const response =await fetch(url)
+    console.log(response.status)
+    const responseJSON= await response.json();
+    setData(responseJSON)
+    console.log(responseJSON)
+  }
 
+  useEffect (() => {
+    fetchApi()
+  }, [])
   
+   const editAmbition = () => {
+    console.log('voy a editar Ambition')
 
-  const [myValueCareer, setMyValueCareer] = useState('');
-
-  const cleanText = () => {
-    setMyValueCareer('');
   }
 
   return (
     <Container maxWidth='lg'>
       <div className='career-ambition'>
         <h1 className='title-career-ambition'>Career Ambition</h1>
-           
-      {/* <h2 className='title-value-career-ambition'>" {myValueCareer} "</h2> */}
-      <br/>
-      <br/> 
-        <TextField
-          label="I am your goal write me...!"
-          id="filled-full-width"
-          name="career"
-          style={{ margin: 10 }}
-          placeholder=""
-          value={myValueCareer}
-          onChange={(e) => setMyValueCareer(e.target.value)}
-          fullWidth
-          margin="normal"
-          InputLabelProps={{
-            shrink: true,
-          }}
-          variant="filled"
-        />
+        <br/>
+        <br/>
+        <Box 
+        p={1}
+        borderRadius={5}
+        fontFamily={'Roboto'}
+        fontWeight={500}
+        bgcolor="#ffe0b2"
+        color="#001E52" 
+        clone
+        textAlign="center"
+        >
+        { !data ? 'Cargando...' :
+          data.map((data, index) => {
+            return <li key={index}> {data.name}<br/>{data.description}</li>
+          })
+        }
+        </Box>
+        <br/>git
 
         <Stack spacing={2} direction="row">
-          <Button variant="contained" onClick={(e) => cleanText(myValueCareer)}>
+          <Button variant="contained" onClick={editAmbition}>
             Editar
           </Button>
         </Stack>

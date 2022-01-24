@@ -1,36 +1,17 @@
-import {
-  Box,
-  Fab,
-  Table,
-  Paper,
-  Input,
-  Typography,
-  InputLabel,
-  FormControl,
-  TableContainer,
-} from "@mui/material";
+import { Box, Table, Paper, Typography, TableContainer } from "@mui/material";
 import EditTableRow from "./EditTableRow";
 import EditTableHead from "./EditTableHead";
-import React from "react";
-// import TableInputs from "./TableInputs";
+import React, { useEffect } from "react";
 
-export default function EditTable({ title, setNewData, data }) {
-  // This is a mock, it will be received from firestore
+export default function EditTable({ title, tableData: data, selectedPeriod, currentUser }) {
 
-  const actionTableInfo = [
-    {
-      "SMART-Goal": "Learn time management tool",
-      "By When": "January 22, 2022",
-    },
-    {
-      "SMART-Goal": "Improve my dev skills",
-      "By When": "Next month",
-    },
-  ];
-
-  const headValues = Object.keys(actionTableInfo[0]);
-  const rows = actionTableInfo.map((obj) => Object.values(obj));
-  
+  const filteredInfo = data
+  // console.log(filteredInfo)
+  let headValues = Object.keys(data[0]);
+  const rows = data.map((obj) =>
+    Object.values(obj).splice(4, headValues.length)
+  );
+  headValues = headValues.splice(4, headValues.length).map(title=>title.replace(/-/g, " "));
 
   return (
     <>
@@ -39,12 +20,16 @@ export default function EditTable({ title, setNewData, data }) {
         sx={{ width: 1 / 3, mx: "auto", my: "1em" }}
       >
         <Typography id={title} sx={{ textAlign: "center" }}>
-          {title}
+          {title ? title.replace(/-/g, " ") : null}
         </Typography>
-        <Table sx={{ width: 7 / 8, m: 2 }} aria-label="simple table">
-          <EditTableHead headValues={headValues} />
-          <EditTableRow rows={rows} />
-        </Table>
+        {data ? (
+          <Table sx={{ width: 7 / 8, m: 2 }} aria-label="simple table">
+            <EditTableHead
+              headValues={headValues}
+            />
+            <EditTableRow rows={rows} />
+          </Table>
+        ) : null}
       </TableContainer>
       <Box
         sx={{
@@ -62,20 +47,7 @@ export default function EditTable({ title, setNewData, data }) {
             flexWrap: "wrap",
             justifyContent: "space-between",
           }}
-        >
-          {/* {headValues.map((input, index) => (
-            <TableInputs input={input} key={input + index} />
-          ))} */}
-        </Box>
-        <Fab
-          color="primary"
-          aria-label="add"
-          className="material-icons"
-          sx={{ width: "3em", height: "3em" }}
-          /* onClick={(e) => addData(e)} */
-        >
-          +
-        </Fab>
+        ></Box>
       </Box>
     </>
   );
