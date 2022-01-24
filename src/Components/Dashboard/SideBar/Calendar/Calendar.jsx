@@ -8,7 +8,7 @@ import "../../../Styles/Calendar.css"
 export default function Calendar() {
   
   return (<div className='calendarInfo'>
-    <img className="calendar" src={process.env.PUBLIC_URL + '/calendar.png'}/>
+    <img className="calendar-img" src={process.env.PUBLIC_URL + '/calendar.png'}/>
     <br></br>
           <Button fullWidth size="large" variant="contained" component={Link} to= './calendarInfo'>
             See all
