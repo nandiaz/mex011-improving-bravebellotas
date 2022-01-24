@@ -35,8 +35,6 @@ const FirestoreProvider = (props) => {
     setData(docs.data())
   }
   
-    console.log(data)
-
 useEffect(() => {
   getFirestore();
 }, []);
