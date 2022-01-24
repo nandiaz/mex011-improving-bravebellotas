@@ -75,9 +75,6 @@ const DataProvider = (props) => {
           infoAll[names[i]] = doc;
         });
         setData(infoAll);
-        infoAll.ambition.forEach((info) => {
-          if (info.status === true) setCurrentAmbition(info.id);
-        });
         return infoAll;
       })
       .catch((err) => {
@@ -88,21 +85,16 @@ const DataProvider = (props) => {
       });
   }, []);
 
-  
-
- 
-
-
-
   const value = {
     data,
     error,
     jsonData,
     onLogout,
     currentUser,
+    selectedPeriod,
     setCurrentUser,
     currentAmbition,
-    selectedPeriod,
+    setCurrentAmbition,
     setSelectedPeriod,
   };
   return (
