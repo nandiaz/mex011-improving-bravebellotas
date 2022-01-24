@@ -47,7 +47,7 @@ const CalendarHead = props => {
 
     return (
         <TableContainer component={Paper} className="month-selector">
-            <Table>
+            <Table className='calendar-head'>
                 <TableHead>
                     <TableRow>
                         <TableCell

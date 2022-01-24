@@ -1,3 +1,4 @@
+
 /* .calendar{
     height: 35vh;
     margin-top: 10vh;
@@ -10,33 +11,51 @@
     justify-content: center;
 }
 
-.bigCalendar-container{
+/*.bigCalendar-container{
     display: flex;
     position: relative;
     align-items: right;
     margin-left: 18vh;
 
 } */
+.calendar-img{
+    height: 250px;
+    margin-top: 20px;
+}
+
+.content-calendar{
+    display: grid;
+    position: relative;
+    left: 60vh;
+    margin-top: 10vh;
+    
+    overflow: scroll;
+}
+
 .calendar {
-    display: flex;
     position:relative;
-    overflow: hidden;
+    
 }
 
 .calendar th,
 .calendar td {
     padding: 1em 2em;
 }
-@media all and (max-width: 768px) {
+@media all and (max-width: 300px) and (max-heigth: 800px ) {
     .calendar th,
     .calendar td {
-        padding: 5px;
+        padding: 3px;
     }
 }
 
 .calendar th {
     background: #efefef;
+    font-family: 'Roboto', sans-serif;
 }
+.calendar-head thead{
+    background-color: #3DB39E ;
+}
+
 
 .calendar td {
     text-align: center;
@@ -44,11 +63,11 @@
 
 .calendar .today {
     font-weight: bold;
-    background-image: linear-gradient(to top, #cfd9df 0%, #e2ebf0 100%);
+    background-color: #3DB39E;
 }
 
 .calendar .active {
-    background-image: linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%);
+    background-image: linear-gradient(120deg, #84fab0 0%, #9fffda 100%);
     color: white;
     padding: 5px;
     border-radius: 50%;
@@ -75,7 +94,10 @@
     text-align: center !important;
 }
 
-.toggle-month:hover,
+.toggle-month:hover{
+    cursor: pointer;
+    background: #368678;
+}
 .week-day:hover {
     cursor: pointer;
     background: #efefef;
@@ -83,19 +105,26 @@
 
 .arrow-icon {
     padding: 5px 0 0 5px;
+    animation: 1s infinite;
+
+    
+}
+.arrow-icon:hover{
+    transform: translatey(5px);
+        
 }
 
 .calendar .selected-day {
     color: white;
     font-weight: bold;
-    background-image: linear-gradient(120deg, #e0c3fc 0%, #8ec5fc 100%);
+    background-image: linear-gradient(120deg, #baeaf3 0%, #8efcaf 100%);
 }
 
 .paper {
     padding: .25em 1.5em 1.5em 1.5em;
-    display: 'flex';
-    overflow: 'auto';
-    flex-direction: 'column'
+    display: flex;
+    overflow: hidden;
+    flex-direction: column;
 }
 
 svg.MuiSvgIcon-root {
@@ -104,4 +133,13 @@ svg.MuiSvgIcon-root {
 svg.MuiSvgIcon-root:hover {
     cursor: pointer;
     opacity: .5;
+}
+
+.paper-activities {
+    padding: .25em 1.5em 1.5em 1.5em;
+    display: flex;
+    overflow: hidden;
+    align-content: center;
+    flex-direction: column;
+    margin-top: 15px;
 }

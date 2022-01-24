@@ -1,3 +1,4 @@
+/* eslint-disable eqeqeq */
 import React from 'react';
 // import './calendar.css';
 import nextId from "react-id-generator";
@@ -13,8 +14,8 @@ import Paper from '@material-ui/core/Paper';
 
 const CalendarBody = props => {
 
-    const { firstDayOfMonth, daysInMonth, currentDay, currentMonth, currentMonthNum, selectedDay, activeDays, setSelectedDay, actualMonth, weekdays } = props;
-
+    const { firstDayOfMonth, daysInMonth, currentDay, currentMonth, currentMonthNum, selectedDay, setSelectedDay, actualMonth, weekdays } = props;
+   // console.log(setSelectedDay)
     let blanks = [];
     for (let i = 0; i < firstDayOfMonth(); i++) {
         blanks.push(
@@ -27,7 +28,9 @@ const CalendarBody = props => {
         let currDay, selectDay, activeDay;
 
         // Check if day is today
-        if (currentDay() === d && currentMonth() === actualMonth()) currDay = "today";
+        if (currentDay() == d && currentMonth() == actualMonth()) currDay = "today";
+        
+        //console.log(currentDay)
 
         // Check if day is selected day
         if (selectedDay.day === d && currentMonthNum() === selectedDay.month ) selectDay = "selected-day";
@@ -43,10 +46,11 @@ const CalendarBody = props => {
                 key={d} 
                 className={`week-day ${currDay} ${selectDay}`}
                 onClick={() => setSelectedDay(d)}
-            >
+                >
                 <span className={activeDay}>{d}</span>
             </TableCell>
         );
+        
     }
 
     let totalSlots = [...blanks, ...monthDays];
