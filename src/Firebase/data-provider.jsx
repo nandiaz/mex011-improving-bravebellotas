@@ -1,6 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import {
-  collection,
+  //collection,
   getDocs,
   deleteDoc,
   doc,
@@ -18,7 +18,7 @@ const FirestoreProvider = (props) => {
   const [data, setData] = useState();
   const [currentUser, setCurrentUser] = useState();
 
-  const getFirestore = async () => {
+ /*  const getFirestore = async () => {
     try {
       const querySnapshot = await getDocs(collection(db, "users"));
       querySnapshot.forEach((doc) => {
@@ -28,7 +28,18 @@ const FirestoreProvider = (props) => {
     } catch (err) {
       console.log(err);
     }
-  };
+  }; */
+  const getFirestore = async () => {
+    const docRef = doc(db, 'users');
+    const docs = await getDocs(docRef);
+    setData(docs.data())
+  }
+  
+    console.log(data)
+
+useEffect(() => {
+  getFirestore();
+}, []);
 
   const editFirestore = async (docId, changes) => {
     const userRef = doc(db, "users", docId);
