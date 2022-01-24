@@ -1,25 +1,25 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import NavBar from "./NavBar";
-import { Box, Typography } from "@mui/material";
-import { useState, useEffect } from "react";
+
+import { Box } from "@mui/material";
+import { useState } from "react";
+
+
 import EditTable from "./EditTable/EditTable";
 import { useDataContext } from "../../Hooks/json-provider";
 
-export default function EditCommitment() {
-  const { data, selectedPeriod, currentUser, currentAmbition } =
-    useDataContext();
-  const link = "http://localhost:5000/";
-  const endpoints = [
-    "Career-Ambitions",
-    "Period",
-    "Main-Goal",
-    "Areas-Of-Focus",
-    "Action-Plan",
-    "Accountability",
-    "Planned-Deliberate-Practices",
-    "Deliberate-Practice-Log",
-  ];
+//importacion para qeu el boton de 90commitment venga aca
+import {useParams} from 'react-router-dom';
 
+
+export default function EditCommitment() {
+
+
+  const id = useParams()
+
+  const { data} = useDataContext();
+  const [periodData, setPeriodData] = useState();
+  
   useEffect(() => {
     if (data && data !== {}) {
     }

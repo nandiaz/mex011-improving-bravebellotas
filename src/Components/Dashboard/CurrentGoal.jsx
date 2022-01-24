@@ -1,59 +1,49 @@
-import React from 'react';
-import TextField from '@mui/material/TextField';
+import React, { useState, useEffect } from "react";
+//import TextField from '@mui/material/TextField';
+import Box from '@mui/material/Box';
 import '../Styles/CurrentGoal.css';
 
-import { useDataContext } from "../../Hooks/json-provider";
-import { useState, useEffect } from "react";
-
-//importar la base de datos
-//import {db} from "firebase-config.js"
-//trear de la bas ede tados el currente goal actual y el q
 
 export default function CurrentGoal() {
   //hook para la data
-  const { data, setData } = useDataContext();
-  const [goal, setGoal]=useState({
-    main-goal: " "
-  })
-  // const [newGoal, setNewGoal]= useState({});
-  // const [goalData, setGoalData]=useState();
-  //const {id, smart-goal} = goal;
+  const [data, setData] = useState([]);
+  let url = "http://localhost:5000/Action-Plan";
 
-  useEffect(() => {
-    if (data) {
-      setGoal(data["Main-Goal"][setData]);
-    }
-  }, [data]);
-  console.log('Estoy en los goals');
+  const fetchApi = async () => {
+    const response =await fetch(url)
+    console.log(response.status)
+    const responseJSON= await response.json();
+    setData(responseJSON)
+    console.log(responseJSON)
+  }
 
+  useEffect (() => {
+    fetchApi()
+  }, [])
+  // cambiar el nombre de campo  "SMART-Goal"
   return (
     <div className='current-goal'>
        <h2 className='title-current-goal'>Current Goal</h2>
-      {goal
-      ?Object.keys(goal).map((title, description) => (
 
-        <TextField
-          key={title + description}
-          title={title}
-         
-          id="filled-full-width"
-          style={{ margin: 8 }}
-          placeholder="Learn to create and iterate at each step..."
-          // value={goal}
-          helperText=""
-          fullWidth
-          margin="normal"
-          InputLabelProps={{
-            shrink: true,
-          }}
-          variant="filled"
-        />
+        <Box 
+        p={1}
+        borderRadius={5}
+        fontFamily={'Roboto'}
+        fontWeight={500}
+        bgcolor="#ffe0b2"
+        color="#001E52" 
+        clone
+        textAlign="center"
+        >
+        { !data ? 'Cargando...' :
+          data.map((data, index) => {
+            return <li key={index}> data.actionPlan[0]["SMART-Goal"]
+          </li>
+          })
+        }
+        </Box>
 
-      ))
 
-      : null}
-
-      
     </div>
   
   );
