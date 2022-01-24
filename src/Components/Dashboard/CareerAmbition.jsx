@@ -9,11 +9,18 @@ import Box from '@mui/material/Box';
 //import { useDataContext } from "../../Hooks/json-provider";
 //import { helpHttp } from "../../helpers/helpers";
 
+//importar la base de datos
+//import {db} from "firebase-config.js"
+
+
+//pasar el parametropara hacer visible el career
 export default function CareerAmbition() {
+
  //hook para la data
  const [data, setData] = useState([]);
   //let api = helpHttp();
   let url = "http://localhost:5000/Career-Ambitions";
+
 
   const fetchApi = async () => {
     const response =await fetch(url)
