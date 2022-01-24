@@ -25,24 +25,6 @@ export default function CurrentGoal() {
     <div className='current-goal'>
        <h2 className='title-current-goal'>Current Goal</h2>
 
-        {/* <TextField
-          label= { !data ? 'Cargando...' :
-          data.map((data, index) => {
-            return <li key={index}> data.actionPlan[0]["SMART-Goal"]
-          </li>
-          })
-        }
-          id="filled-full-width"
-          style={{ margin: 8 }}
-          placeholder=""
-          fullWidth
-          margin="normal"
-          InputLabelProps={{
-            shrink: true,
-          }}
-          variant="filled"
-        /> */}
-
         <Box 
         p={1}
         borderRadius={5}

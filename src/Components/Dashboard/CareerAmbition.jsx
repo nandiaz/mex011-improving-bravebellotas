@@ -54,27 +54,7 @@ export default function CareerAmbition() {
           })
         }
         </Box>
-        <br/>
-  
-        {/* <TextField
-          label={ !data ? 'Cargando...' :
-          data.map((data, index) => {
-            return <li key={index}> {data.name}<br/>{data.description}</li>
-          })
-        }
-          id="filled-full-width"
-          name="career"
-          style={{ margin: 10 }}
-          placeholder=""
-          //value={myValueCareer}
-          //onChange={(e) => setMyValueCareer(e.target.value)}
-          fullWidth
-          margin="normal"
-          InputLabelProps={{
-            shrink: true,
-          }}
-          variant="filled"
-        /> */}
+        <br/>git
 
         <Stack spacing={2} direction="row">
           <Button variant="contained" onClick={editAmbition}>
