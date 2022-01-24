@@ -8,7 +8,7 @@ import DataProvider from "./Hooks/json-provider";
 import Login from "./Components/Login/Login";
 import Dashboard from "./Components/Dashboard/Dashboard";
 import EditTable from "./Components/EditCommitment/EditCommitment";
-import CalendarInfo from "./Components/Dashboard/SideBar/Calendar/CalendarInfo"
+import Calendars from "./Components/Dashboard/SideBar/Calendar/Index"
 
 import "./Components/Styles/App.css";
 
@@ -50,6 +50,7 @@ function App() {
               <Route exact path="/login" element={<Login />} />
               <Route exact path="/" element={<Dashboard />} />
               <Route exact path="/edit-commitment" element={<EditTable />} />
+              <Route exact path="/calendarInfo" element={<Calendars />} />
               <Route exact path="*" element={<>404 Page not Found</>} />
             </Routes>
           </DataProvider>
