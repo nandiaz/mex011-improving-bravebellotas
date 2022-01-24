@@ -6,8 +6,9 @@ export const DataContext = createContext(null);
 const DataProvider = (props) => {
   const initialData = undefined;
   const [data, setData] = useState(initialData);
-  const [selectedPeriod, setSelectedPeriod] = useState("Q1-2022");
+  const [selectedPeriod, setSelectedPeriod] = useState();
   const [currentUser, setCurrentUser] = useState("squad@braveBellotas.com");
+  const [currentAmbition, setCurrentAmbition] = useState();
   const [error, setError] = useState();
 
   const onLogout = () => setData(initialData);
@@ -21,7 +22,7 @@ const DataProvider = (props) => {
       method: action,
     };
     if (!newInfo) delete options.body;
-    setTimeout(() => controller.abort(), 5000);
+    setTimeout(() => controller.abort(), 10000);
 
     try {
       const endpointInfo = await (await fetch(url, options)).json();
@@ -62,23 +63,28 @@ const DataProvider = (props) => {
       plannedPractices,
       practiceLog,
       users,
-  };
+    };
   };
 
   useEffect(() => {
-    const names = Object.keys(initialRender())
-    const infoAll = {}
+    const names = Object.keys(initialRender());
+    const infoAll = {};
     Promise.all(Object.values(initialRender()))
       .then((res) => {
         res.forEach((doc, i) => {
           infoAll[names[i]] = doc;
-        })
-        setData(infoAll)
-        return infoAll
+        });
+        setData(infoAll);
+        infoAll.ambition.forEach((info) => {
+          if (info.status === true) setCurrentAmbition(info.id);
+        });
+        return infoAll;
       })
       .catch((err) => {
         console.log(err);
-        setError("There was an error retrieving your data, please try again later");
+        setError(
+          "There was an error retrieving your data, please try again later"
+        );
       });
   }, []);
 
@@ -89,6 +95,7 @@ const DataProvider = (props) => {
     onLogout,
     currentUser,
     setCurrentUser,
+    currentAmbition,
     selectedPeriod,
     setSelectedPeriod,
   };
