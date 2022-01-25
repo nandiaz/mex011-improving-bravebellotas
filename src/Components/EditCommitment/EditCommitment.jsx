@@ -14,30 +14,17 @@ export default function EditCommitment() {
   const id = useParams();
   const { data, currentAmbition, selectedPeriod, error, currentUser } =
     useDataContext();
-  const [goal, setGoal] = useState();
 
   const endpoints = [
     "Career-Ambitions",
     "Period",
     "Main-Goal",
-    "Areas-Of-Focus",
     "Action-Plan",
+    "Areas-Of-Focus",
     "Accountability",
     "Planned-Deliberate-Practices",
     "Deliberate-Practice-Log",
   ];
-
-  useEffect(() => {
-    if (data && data !== {}) {
-      /* setGoal(
-        data.mainGoal.filter((info) => info.ambition === currentAmbition)[0][
-          "name"
-        ]
-      );
-      console.log(goal) */
-      console.log(currentAmbition);
-    } else if (error) console.log(error);
-  }, [data]);
 
   return (
     <Box component="main" id="edit">
@@ -82,7 +69,7 @@ export default function EditCommitment() {
           title !== "mainGoal" &&
           title !== "ambition" &&
           title !== "users" ? (
-            <EditTable
+              <EditTable
               key={title + index}
               title={endpoints[index]}
               endpoint={endpoints[index]}
