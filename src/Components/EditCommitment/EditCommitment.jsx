@@ -7,12 +7,13 @@ import { useParams } from "react-router-dom";
 
 import EditTable from "./EditTable/EditTable";
 import { useDataContext } from "../../Hooks/json-provider";
+import TableInputs from "./EditTable/TableInputs";
 
 export default function EditCommitment() {
   const id = useParams();
-
-  const { data, currentAmbition: ambition, selectedPeriod } = useDataContext();
-  const [periodData, setPeriodData] = useState();
+  const { data, currentAmbition, selectedPeriod, error, currentUser } =
+    useDataContext();
+  const [goal, setGoal] = useState();
 
   const endpoints = [
     "Career-Ambitions",
@@ -23,11 +24,18 @@ export default function EditCommitment() {
     "Accountability",
     "Planned-Deliberate-Practices",
     "Deliberate-Practice-Log",
-  ]; 
+  ];
 
   useEffect(() => {
     if (data && data !== {}) {
-    }
+      /* setGoal(
+        data.mainGoal.filter((info) => info.ambition === currentAmbition)[0][
+          "name"
+        ]
+      );
+      console.log(goal) */
+      console.log(currentAmbition);
+    } else if (error) console.log(error);
   }, [data]);
 
   return (
@@ -36,40 +44,37 @@ export default function EditCommitment() {
       {data ? (
         <>
           <Typography>
-            Main Goal:{" "}
-            {data
-              ? data.mainGoal.filter(
-                  // something doesn't let it render all the times
-                  // add current user filter
-                  (info) => info.ambition === ambition
-                )[0].name
-              : null}
+            Main Goal: {data ? data.mainGoal[0].name : null}
           </Typography>
-          <Typography>
-            Period:{" "}
-            {data
-              ? data.period.filter(
-                  (data) => data.ambition === ambition
-                )[0].id
-              : null}
-          </Typography>
+          <Typography>Period: {data ? data.period[0].id : null}</Typography>
         </>
       ) : null}
-      {data
-        ? Object.keys(data).map((title, index) =>
-            title !== "period" &&
-            title !== "mainGoal" &&
-            title !== "ambition" &&
-            title !== "users" ? (
-              <EditTable
-                key={title + index}
-                title={endpoints[index]}
-                tableData={data[title]}
-                selectedPeriod={selectedPeriod}
-              />
-            ) : null
-          )
-        : null}
+      {data ? (
+        Object.keys(data).map((title, index) =>
+          title !== "period" &&
+          title !== "mainGoal" &&
+          title !== "ambition" &&
+          title !== "users" ? (
+            <EditTable
+              key={title + index}
+              title={endpoints[index]}
+              endpoint={endpoints[index]}
+              tableData={data[title]}
+              selectedPeriod={selectedPeriod}
+            />
+          ) : null
+        )
+        
+      ) : !error ? (
+        <Typography>Loading...</Typography>
+      ) : (
+        <Typography>There was an error, please reload the page</Typography>
+      )}
     </Box>
   );
 }
+
+/* <TableFocus key={title + index}
+                title={endpoints[index]}
+                tableData={data[title]}
+                selectedPeriod={selectedPeriod} /> */

@@ -6,8 +6,8 @@ import '../../Styles/CommitmentsTable.css';
 import ProgressBar from '../CommitmentsTable/ProgressBar';
 
 
-
 export default function CommitmentsTable() {
+
   // hook para la data
   const [data, setData] = useState([]);
 
@@ -32,6 +32,7 @@ export default function CommitmentsTable() {
   //  const editActions = () => {
   //     console.log('edit Action Plans');
   //   }
+
 
   return (
     <div className='container-commitments'>
@@ -106,6 +107,7 @@ export default function CommitmentsTable() {
           </Table>
         </TableContainer>
       </Container>
+
     </div>
 
   );

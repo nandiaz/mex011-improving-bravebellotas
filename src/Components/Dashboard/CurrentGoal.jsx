@@ -2,6 +2,9 @@ import React, { useState, useEffect } from "react";
 //import TextField from '@mui/material/TextField';
 import Box from '@mui/material/Box';
 import '../Styles/CurrentGoal.css';
+//importar la base de datos
+//import {db} from "firebase-config.js"
+
 
 
 export default function CurrentGoal() {
@@ -43,6 +46,7 @@ export default function CurrentGoal() {
           })
         } */}
       </Box>
+
     </div>
 
   );

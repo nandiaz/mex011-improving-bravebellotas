@@ -5,6 +5,11 @@ import Button from '@mui/material/Button';
 import Stack from '@mui/material/Stack';
 import Container from '@mui/material/Container';
 
+//importar la base de datos
+//import {db} from "firebase-config.js"
+
+
+//pasar el parametropara hacer visible el career
 export default function CareerAmbition() {
   //  const [data, setData] = useState({
   //    nombre:'',
