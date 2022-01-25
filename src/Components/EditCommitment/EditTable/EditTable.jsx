@@ -2,6 +2,11 @@ import { Box, Table, Paper, Typography, TableContainer } from "@mui/material";
 import EditTableRow from "./EditTableRow";
 import EditTableHead from "./EditTableHead";
 import React from "react";
+import ActionPlan from "./DataHandlers/ActionPlan";
+import AreasFocus from "./DataHandlers/AreasFocus";
+import Accountability from "./DataHandlers/Accountability";
+import PlannedPractices from "./DataHandlers/PlannedPractices";
+import PracticeLog from "./DataHandlers/PracticeLog";
 
 export default function EditTable({
   title,
@@ -49,6 +54,11 @@ export default function EditTable({
             <EditTableRow rows={rows} data={data} endpoint={endpoint} />
           </Table>
         ) : null}
+        {endpoint ==="Areas-Of-Focus" ? <AreasFocus endpoint={endpoint} />: null}
+        {endpoint ==="Action-Plan" ? <ActionPlan endpoint={endpoint} />: null}
+        {endpoint ==="Accountability" ? <Accountability endpoint={endpoint} />: null}
+        {endpoint ==="Planned-Deliberate-Practices" ? <PlannedPractices endpoint={endpoint} />: null}
+        {endpoint ==="Deliberate-Practice-Log" ? <PracticeLog endpoint={endpoint} />: null}
       </TableContainer>
       <Box
         sx={{
