@@ -26,7 +26,7 @@ export default function NavBar() {
   };
 
   return (
-    <Box style={{ backgroundColor: '#3DB39E'}} sx={{ width: '100%', pl: 8, pr: 8, position:"fixed" }}>
+    <Box style={{ backgroundColor: '#3DB39E'}} sx={{ width: '100%', pl: 8, pr: 8, position:"fixed", zIndex:"100" }}>
       <Tabs value={value} onChange={handleChange} aria-label="nav bar">
         <IconButton>
           <DashboardIcon style={{ color: '#2A594D'}} />
