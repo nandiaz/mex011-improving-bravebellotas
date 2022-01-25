@@ -52,9 +52,11 @@ export default function Home() {
           </picture>
         </div>
         <div className="right-login">
+          <h2 className="excellence-slogan">“Excellence, Dedication,</h2>
+          <h2 className="involvement-slogan">and Involvement”</h2>
           <h2 className="login-hi">Hi, Improver!</h2>
           <h3 className="login-text">Login to start:</h3>
-          <form className="form-login" onSubmit={handleSubmit}>
+          <form className="form-login" onSubmit={handleSubmit} >
             <TextField
               label="Email"
               variant="filled"
@@ -63,8 +65,10 @@ export default function Home() {
               placeholder="Enter your email address"
               required
               value={loginEmail}
-              className="input-log"
+              className="email-input"
               onChange={(e) => setLoginEmail(e.target.value)}
+              size="small"
+              sx={{ m: "2rem" }}
             />
             <br />
             <br />
@@ -75,21 +79,23 @@ export default function Home() {
               placeholder="Enter your password"
               required
               value={loginPassword}
-              className="input-log"
+              className="password-input"
               onChange={(e) => setLoginPassword(e.target.value)}
               variant="filled"
               size="small"
+              sx={{ p: 0 }}
             />
             <br />
             <br />
             <div className="error-login">{error}</div>
             <Button
+            sx={{ m: 0 }} 
             variant="contained"
             size="medium"
             color="primary"
             className="btt-submit"
             type="submit"
-            value="INGRESAR">
+            value="login">
               Login
             </Button>
           </form>
