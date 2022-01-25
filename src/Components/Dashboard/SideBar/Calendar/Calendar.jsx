@@ -5,44 +5,34 @@ import { Button } from '@mui/material';
 import { Link } from "react-router-dom";
 import "../../../Styles/Calendar.css"
 
-import isWeekend from 'date-fns/isWeekend';
-import TextField from '@mui/material/TextField';
-import AdapterDateFns from '@mui/lab/AdapterDateFns';
-import LocalizationProvider from '@mui/lab/LocalizationProvider';
-import StaticDatePicker from '@mui/lab/StaticDatePicker';
-import Container from '@mui/material/Container';
+
+import Calendar from 'react-calendar'
+import 'react-calendar/dist/Calendar.css';
 
 
 
 
-export default function Calendar() {
+export default function CalendarInfo() {
 
- const [value, setValue] = useState([new Date()]);
-
+  const [dateState, setDateState] = useState([new Date()])
+  const changeDate = (e) => {
+    setDateState(e)
+  }
   //const [value, setValue] = useState[new Date()];
-  return (<div className='calendarInfo'>
-    <Container  >
-    <LocalizationProvider dateAdapter={AdapterDateFns} >
-      <StaticDatePicker
-        
-        openTo="day"
-        value={value}
-        shouldDisableDate={isWeekend}
-        onChange={(newValue) => {
-          setValue(newValue);
-        }}
-        renderInput={(params) => <TextField {...params} />}
-        size="small"
-        
-      />
-    </LocalizationProvider>
-    </Container>
-    <br></br>
-    <>
-          <Button className='btn-see'fullWidth size="large" variant="contained" component={Link} to= './calendarInfo' color='secondary'>
+  return (<div className="calendar-info">
+    
+    <div className="calendar-mini">
+
+    <Calendar value={dateState} onChange={changeDate} locale="en-En"/>
+   
+    </div>
+  
+  
+    <div className="btn-see">
+          <Button  size="large" variant="contained" component={Link} to= './calendarInfo' color='secondary' sx={{ml: 100, mt: 100}}>
             See all
           </Button>
-          </>  
+    </div> 
 
     </div>);
 }

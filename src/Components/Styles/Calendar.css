@@ -4,10 +4,10 @@
     max-width: 100%;
     /* max-height: 200px; 
     
-}
+}*/
 
 .calendarInfo{
-    justify-content: center;
+    align-items: center;
 }
 
 /*.bigCalendar-container{
@@ -22,11 +22,10 @@
     margin-top: 20px;
 }
 .calendar-mini{
-    padding: 20px;
-    box-sizing: border-box;
-    margin: 5px;
-    height: 50px;
-    width: 50px;
+    max-width: 2500px;
+    margin-left: 7vh;
+    margin-top: 5vh;
+    
 }
 
 .content-calendar{
@@ -131,7 +130,11 @@
     display: flex;
     overflow: hidden;
     flex-direction: column;
+    overflow-y: no-scroll;
 }
+.paper::-webkit-scrollbar {
+    display: none;
+  }
 
 svg.MuiSvgIcon-root {
     transition: 250ms ease;
@@ -149,3 +152,21 @@ svg.MuiSvgIcon-root:hover {
     flex-direction: column;
     margin-top: 15px;
 }
+.btn-return{
+
+    display: flex;
+    margin-left: 800px;
+    margin-top: 20px;
+    background-color: #5db1d8;
+    padding: 10px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    border-radius: 10px;
+    border-color: #5db1d8;
+
+}
+.btn-see{
+    display: flex;
+    margin-left: 15vh;
+    margin-top: 1vh;
+}
+

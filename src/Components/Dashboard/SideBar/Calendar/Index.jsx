@@ -9,6 +9,9 @@ import CalendarHead from './CalendarHead';
 import SideBar from '../SideBar';
 import { useDataContext } from "../../../../Hooks/json-provider";
 import "../../../Styles/Calendar.css"
+import { Link } from "react-router-dom";
+import { Button } from '@mui/material';
+import ActivityList from './ActivityList'
 
 
 const Calendars = () => {
@@ -18,34 +21,27 @@ const Calendars = () => {
     };
 
     /*** DATA ***/
+    const { data, error } = useDataContext();
     /* const { data, activitiesDay } = useDataContext();
     console.log(data.practiceLog[0].Date)
     console.log(data.practiceLog[0].period) */
-    const [data, setData] = useState([]);
+    //const [data, setData] = useState([]);
+    useEffect(() => {
+      if (data && data !== {}) {
+       
+        console.log(data.practiceLog[0].Date)
+      } else if (error) console.log(error);
+    }, [data]);
 
-  let url = "http://localhost:5000/Deliberate-Practice-Log" // campo "id"
-  // let urlOne = "http://localhost:5000/Main-Goal" // campo "name"
-  // let urlTwo = "http://localhost:5000/Action-Plan"; // campo "status"
-
-
-  const fetchApi = async () => {
-    const response =await fetch(url)
-    const responseJSON= await response.json();
-    setData(responseJSON)
-    //console.log(responseJSON[0].Date)
-  }
-
-  useEffect (() => {
-    fetchApi()
-  }, [])
+ 
 
   //Fecha desde json
-    // const date = data[0].Date;
-    // const newDate = new Date (date);
-    // console.log(newDate)
+    //console.log(data.practiceLog[0].Date)
+    //const newDate = new Date (date);
     // const dayDate = newDate.getDate();
     // const monthDate = newDate.getMonth()+1;
     // const yearDate = newDate.getFullYear();
+    // let dataDate = `${dayDate}-${monthDate}-${yearDate}`;
 
     /*** HOOKS ***/
     const [dateObject, setdateObject] = useState(moment());
@@ -85,16 +81,30 @@ const Calendars = () => {
     const firstDayOfMonth = () => moment(dateObject).startOf("month").format("d");
 
 
-
+    const [activities, setActivities] = useState(true);
     const retrieveData = () => {
         let queryDate = `${selectedDay.day}-${selectedDay.month}-${selectedDay.year}`;
+        // if (dataDate === queryDate){
+        //   // setActivities(data)
+        //   console.log("igual dia")
+        // }
 
     }
     //useEffect(() => retrieveData(), [selectedDay]);
 
+
+   
   return <div className='calendarInfo'>
-      <SideBar></SideBar>
+     <SideBar></SideBar>
+
+     
+      
       <div className='content-calendar'>
+        <div>
+      <Button size="small" variant="contained"  color='primary' component={Link} to= '/' sx={{  '& ..MuiButton-root': {
+            ml: 300
+            },}} >Go Back</Button>
+        </div>
       <Grid item xs={12} md={8} lg={8} >
                     <CalendarHead
                         allMonths={allMonths}
@@ -120,15 +130,11 @@ const Calendars = () => {
         <Grid item xs={12} md={7}>
                 <Paper className="paper-activities">
                 <h3>Activities on {selectedDay.day}-{selectedDay.month + 1}</h3>
-                {/* <ActivityList
-                    loading={loading}
+                <ActivityList
+                   
                     activities={activities}
-                    //authUser={props.authUser}
-                    //setOpenSnackbar={setOpenSnackbar}
-                    //setSnackbarMsg={setSnackbarMsg}
-                    //editActivity={editActivity}
-                    //setEditing={setEditing}
-                /> */}
+                    
+                />
                 </Paper>
         </Grid>
         </div>
