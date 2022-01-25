@@ -8,7 +8,7 @@ const DataProvider = (props) => {
   const [data, setData] = useState(initialData);
   const [selectedPeriod, setSelectedPeriod] = useState();
   const [currentUser, setCurrentUser] = useState("squad@braveBellotas.com");
-  const [currentAmbition, setCurrentAmbition] = useState();
+  const [currentAmbition, setCurrentAmbition] = useState(null);
   const [error, setError] = useState();
 
   const onLogout = () => setData(initialData);
@@ -35,24 +35,24 @@ const DataProvider = (props) => {
   };
 
   const initialRender = () => {
-    const ambition = jsonData("http://localhost:5000/Career-Ambitions", "GET");
-    const period = jsonData("http://localhost:5000/Period", "GET");
-    const mainGoal = jsonData("http://localhost:5000/Main-Goal", "GET");
-    const actionPlan = jsonData("http://localhost:5000/Action-Plan", "GET");
-    const areasFocus = jsonData("http://localhost:5000/Areas-Of-Focus", "GET");
+    const ambition = jsonData("https://fake-api-bravebellotas.herokuapp.com/Career-Ambitions", "GET");
+    const period = jsonData("https://fake-api-bravebellotas.herokuapp.com/Period", "GET");
+    const mainGoal = jsonData("https://fake-api-bravebellotas.herokuapp.com/Main-Goal", "GET");
+    const actionPlan = jsonData("https://fake-api-bravebellotas.herokuapp.com/Action-Plan", "GET");
+    const areasFocus = jsonData("https://fake-api-bravebellotas.herokuapp.com/Areas-Of-Focus", "GET");
     const accountability = jsonData(
-      "http://localhost:5000/Accountability",
+      "https://fake-api-bravebellotas.herokuapp.com/Accountability",
       "GET"
     );
     const plannedPractices = jsonData(
-      "http://localhost:5000/Planned-Deliberate-Practices",
+      "https://fake-api-bravebellotas.herokuapp.com/Planned-Deliberate-Practices",
       "GET"
     );
     const practiceLog = jsonData(
-      "http://localhost:5000/Deliberate-Practice-Log",
+      "https://fake-api-bravebellotas.herokuapp.com/Deliberate-Practice-Log",
       "GET"
     );
-    const users = jsonData("http://localhost:5000/users", "GET");
+    const users = jsonData("https://fake-api-bravebellotas.herokuapp.com/users", "GET");
     return {
       ambition,
       period,
@@ -84,6 +84,16 @@ const DataProvider = (props) => {
         );
       });
   }, []);
+
+  useEffect(() => {
+    if (data && data !== {}) {
+      data.ambition.forEach((info) => {
+        if (info.status === true && info.user === currentUser) {
+          setCurrentAmbition(info.id);
+        }
+      })
+    }
+  },[data])
 
   const value = {
     data,
