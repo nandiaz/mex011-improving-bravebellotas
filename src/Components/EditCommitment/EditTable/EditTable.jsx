@@ -29,6 +29,7 @@ export default function EditTable({
           my: "2em",
           boxShadow: "none",
           border: "1px solid black",
+          py: 3,
         }}
       >
         <Typography
