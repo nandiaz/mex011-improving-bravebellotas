@@ -9,6 +9,8 @@ import CalendarHead from './CalendarHead';
 import SideBar from '../SideBar';
 import { useDataContext } from "../../../../Hooks/json-provider";
 import "../../../Styles/Calendar.css"
+import { Link } from "react-router-dom";
+import { Button } from '@mui/material';
 
 
 const Calendars = () => {
@@ -91,9 +93,13 @@ const Calendars = () => {
 
     }
     //useEffect(() => retrieveData(), [selectedDay]);
-
+   
   return <div className='calendarInfo'>
-      <SideBar></SideBar>
+     <SideBar></SideBar>
+     <Button size="large" variant="contained"  color='primary' component={Link} to= '/' sx={{  '& ..MuiButton-root': {
+            ml: 100
+            },}} >Go Back</Button>
+      
       <div className='content-calendar'>
       <Grid item xs={12} md={8} lg={8} >
                     <CalendarHead

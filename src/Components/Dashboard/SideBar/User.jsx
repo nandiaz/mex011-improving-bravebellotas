@@ -9,9 +9,10 @@ export default function User() {
   
   return ( <div className='infoUser'>
     
-    <Avatar className= "avatar" alt="A" sx={{ width: 180, height: 180}}/>
+    <Avatar className= "avatar" alt="A" sx={{ width: 150, height: 150}}/>
     <h2 className='infoUser'>{currentUser?.name}</h2>
     <p className='infoUser'>{currentUser?.email}</p>
+    
     
     </div>);
 }
