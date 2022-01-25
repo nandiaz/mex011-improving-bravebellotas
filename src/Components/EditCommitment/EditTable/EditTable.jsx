@@ -30,12 +30,13 @@ export default function EditTable({
       <TableContainer
         component={Paper}
         sx={{
-          width: 3 / 4,
+          maxWidth: 3 / 4,
           mx: "auto",
           my: "2em",
           boxShadow: "none",
           border: "1px solid black",
           py: 3,
+          px:3
         }}
       >
         <Typography
