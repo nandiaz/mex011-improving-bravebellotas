@@ -1,4 +1,4 @@
-import { FormControl, TextField, Box, Fab } from "@mui/material";
+import { FormControl, TextField, Box, Button } from "@mui/material";
 import { Add } from "@mui/icons-material";
 
 export default function PlannedPractices() {
@@ -19,9 +19,9 @@ const inputs = { width: "80%" };
           <TextField label="Action/Practice/Habit" sx={{width:"20em"}} />
           <TextField label="Frequency" sx={{inputs}} />
         </FormControl>
-        <Fab color="primary" aria-label="add" sx={{ mr: "3em" }}>
+        <Button variant="outlined" aria-label="add" sx={{ mr: "3em" }}>
           <Add />
-        </Fab>
+        </Button>
       </Box>
     </>
   );

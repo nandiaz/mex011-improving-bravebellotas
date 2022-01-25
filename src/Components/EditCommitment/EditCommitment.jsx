@@ -4,16 +4,14 @@ import "../Styles/EditTable.css";
 
 import { useParams } from "react-router-dom";
 import EditTable from "./EditTable/EditTable";
-import TableInputs from "./EditTable/TableInputs";
 import { EditOutlined } from "@mui/icons-material";
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { Box, Typography, Button } from "@mui/material";
 import { useDataContext } from "../../Hooks/json-provider";
 
 export default function EditCommitment() {
   const id = useParams();
-  const { data, currentAmbition, selectedPeriod, error, currentUser } =
-    useDataContext();
+  const { data, selectedPeriod, error } = useDataContext();
 
   const endpoints = [
     "Career-Ambitions",
@@ -69,7 +67,7 @@ export default function EditCommitment() {
           title !== "mainGoal" &&
           title !== "ambition" &&
           title !== "users" ? (
-              <EditTable
+            <EditTable
               key={title + index}
               title={endpoints[index]}
               endpoint={endpoints[index]}

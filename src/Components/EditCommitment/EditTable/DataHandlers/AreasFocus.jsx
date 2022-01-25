@@ -1,4 +1,4 @@
-import { FormControl, TextField, Box, Fab } from "@mui/material";
+import { FormControl, TextField, Box, Button } from "@mui/material";
 import { Add } from "@mui/icons-material";
 
 const styles = {
@@ -8,8 +8,6 @@ const styles = {
   justifyContent: "space-around",
 };
 
-const inputs = { width: "40%" };
-
 export default function AreasFocus() {
   return (
     <>
@@ -17,9 +15,9 @@ export default function AreasFocus() {
         <FormControl sx={{ width: "70%", ...styles }}>
                   <TextField label="Areas of Focus" sx={{width:"60%"}}/>
         </FormControl>
-        <Fab color="primary" aria-label="add" sx={{ mr: "3em" }}>
+        <Button variant="outlined" aria-label="add" sx={{ mr: "3em" }}>
           <Add />
-        </Fab>
+        </Button>
       </Box>
     </>
   );

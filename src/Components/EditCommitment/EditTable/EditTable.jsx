@@ -15,6 +15,7 @@ export default function EditTable({
   currentUser,
   endpoint,
 }) {
+
   // Filtering the info is still needed
   let headValues = Object.keys(data[0]);
   const rows = data.map((obj) =>
