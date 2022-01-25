@@ -96,11 +96,15 @@ const Calendars = () => {
    
   return <div className='calendarInfo'>
      <SideBar></SideBar>
-     <Button size="large" variant="contained"  color='primary' component={Link} to= '/' sx={{  '& ..MuiButton-root': {
-            ml: 100
-            },}} >Go Back</Button>
+
+     
       
       <div className='content-calendar'>
+        <div>
+      <Button size="small" variant="contained"  color='primary' component={Link} to= '/' sx={{  '& ..MuiButton-root': {
+            ml: 300
+            },}} >Go Back</Button>
+        </div>
       <Grid item xs={12} md={8} lg={8} >
                     <CalendarHead
                         allMonths={allMonths}

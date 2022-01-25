@@ -19,20 +19,20 @@ export default function CalendarInfo() {
     setDateState(e)
   }
   //const [value, setValue] = useState[new Date()];
-  return (<div className='calendarInfo'>
+  return (<div className="calendar-info">
     
-    <div>
+    <div className="calendar-mini">
 
-    <Calendar value={dateState} onChange={changeDate}/>
+    <Calendar value={dateState} onChange={changeDate} locale="en-En"/>
    
     </div>
   
   
-    
+    <div className="btn-see">
           <Button  size="large" variant="contained" component={Link} to= './calendarInfo' color='secondary' sx={{ml: 100, mt: 100}}>
             See all
           </Button>
-          
+    </div> 
 
     </div>);
 }

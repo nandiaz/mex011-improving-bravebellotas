@@ -26,7 +26,9 @@ export default function SideBar() {
         anchor="left"
         
       >
+        <div className="btn-logout">
         <BttnLogout/>
+        </div>
         <User />
         <CalendarInfo />
         
