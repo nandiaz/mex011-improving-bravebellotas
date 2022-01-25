@@ -110,6 +110,10 @@
     height: .5rem;
 }
 
+.MuiTextField-root{
+    height: 3rem;
+}
+
 .email-input{
     width: 65%;
 }
@@ -122,7 +126,6 @@
     width: 65%;
     height: 3rem;
     font-size: 5rem;
-    margin-top: 1em;
 }
 
 .error-login{

@@ -56,7 +56,7 @@ export default function Home() {
           <h2 className="involvement-slogan">and Involvement”</h2>
           <h2 className="login-hi">Hi, Improver!</h2>
           <h3 className="login-text">Login to start:</h3>
-          <form className="form-login" onSubmit={handleSubmit}>
+          <form className="form-login" onSubmit={handleSubmit} >
             <TextField
               label="Email"
               variant="filled"
@@ -67,6 +67,8 @@ export default function Home() {
               value={loginEmail}
               className="email-input"
               onChange={(e) => setLoginEmail(e.target.value)}
+              size="small"
+              sx={{ m: "2rem" }}
             />
             <br />
             <br />
@@ -81,11 +83,13 @@ export default function Home() {
               onChange={(e) => setLoginPassword(e.target.value)}
               variant="filled"
               size="small"
+              sx={{ p: 0 }}
             />
             <br />
             <br />
             <div className="error-login">{error}</div>
             <Button
+            sx={{ m: 0 }} 
             variant="contained"
             size="medium"
             color="primary"
