@@ -41,7 +41,7 @@ export default function EditCommitment() {
 
   return (
     <Box component="main" id="edit">
-      <NavBar sx={{ position: "sticky" }} />
+      <NavBar />
       {data ? (
         <>
           <Typography
@@ -51,7 +51,7 @@ export default function EditCommitment() {
               fontWeight: "700",
               fontSize: "2em",
               textAlign: "center",
-              my: 2,
+              pt: 15,
             }}
           >
             Main Goal: {data ? data.mainGoal[0].name : null}
@@ -92,9 +92,17 @@ export default function EditCommitment() {
           ) : null
         )
       ) : !error ? (
-        <Typography>Loading...</Typography>
+        <Box sx={{ height: "100vh" }}>
+          <Typography sx={{ pt: 15, textAlign: "center" }}>
+            Loading...
+          </Typography>
+        </Box>
       ) : (
-        <Typography>There was an error, please reload the page</Typography>
+        <Box sx={{ height: "100vh" }}>
+          <Typography sx={{ pt: 15, textAlign: "center" }}>
+            There was an error, please reload the page
+          </Typography>
+        </Box>
       )}
     </Box>
   );
