@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import moment from 'moment';
 
@@ -8,6 +9,9 @@ import CalendarHead from './CalendarHead';
 import SideBar from '../SideBar';
 import { useDataContext } from "../../../../Hooks/json-provider";
 import "../../../Styles/Calendar.css"
+import { Link } from "react-router-dom";
+import { Button } from '@mui/material';
+import ActivityList from './ActivityList'
 
 
 const Calendars = () => {
@@ -17,21 +21,38 @@ const Calendars = () => {
     };
 
     /*** DATA ***/
+    const { data, error } = useDataContext();
     /* const { data, activitiesDay } = useDataContext();
     console.log(data.practiceLog[0].Date)
     console.log(data.practiceLog[0].period) */
-    
-   
+    //const [data, setData] = useState([]);
+    useEffect(() => {
+      if (data && data !== {}) {
+       
+        console.log(data.practiceLog[0].Date)
+      } else if (error) console.log(error);
+    }, [data]);
+
+ 
+
+  //Fecha desde json
+    //console.log(data.practiceLog[0].Date)
+    //const newDate = new Date (date);
+    // const dayDate = newDate.getDate();
+    // const monthDate = newDate.getMonth()+1;
+    // const yearDate = newDate.getFullYear();
+    // let dataDate = `${dayDate}-${monthDate}-${yearDate}`;
+
     /*** HOOKS ***/
     const [dateObject, setdateObject] = useState(moment());
     const [showMonthTable, setShowMonthTable] = useState(false);
     const [selectedDay, setSelected] = useState(defaultSelectedDay);
-    
+
     /*** CALENDAR HEAD ***/
     const allMonths = moment.months();
     const currentMonth = () => dateObject.format("MMMM");
     const currentYear = () => dateObject.format("YYYY");
-    
+
 
     const setMonth = month => {
         let monthNo = allMonths.indexOf(month);
@@ -40,7 +61,7 @@ const Calendars = () => {
         setdateObject(newDateObject);
         setShowMonthTable(false);
     }
-    
+
     const toggleMonthSelect = () => setShowMonthTable(!showMonthTable);
     /*** CALENDAR BODY ***/
     const setSelectedDay = day => {
@@ -54,19 +75,36 @@ const Calendars = () => {
     const currentMonthNum = () => dateObject.month();
     const daysInMonth = () => dateObject.daysInMonth();
     const currentDay = () => dateObject.format("D");
-    
+
     const actualMonth = () => moment().format("MMMM");
 
     const firstDayOfMonth = () => moment(dateObject).startOf("month").format("d");
 
+
+    const [activities, setActivities] = useState(true);
     const retrieveData = () => {
         let queryDate = `${selectedDay.day}-${selectedDay.month}-${selectedDay.year}`;
-        console.log(queryDate)
-    }
+        // if (dataDate === queryDate){
+        //   // setActivities(data)
+        //   console.log("igual dia")
+        // }
 
+    }
+    //useEffect(() => retrieveData(), [selectedDay]);
+
+
+   
   return <div className='calendarInfo'>
-      <SideBar></SideBar>
+     <SideBar></SideBar>
+
+     
+      
       <div className='content-calendar'>
+        <div>
+      <Button size="small" variant="contained"  color='primary' component={Link} to= '/' sx={{  '& ..MuiButton-root': {
+            ml: 300
+            },}} >Go Back</Button>
+        </div>
       <Grid item xs={12} md={8} lg={8} >
                     <CalendarHead
                         allMonths={allMonths}
@@ -76,7 +114,7 @@ const Calendars = () => {
                         showMonthTable={showMonthTable}
                         toggleMonthSelect={toggleMonthSelect}
                     />
-                    <CalendarBody 
+                    <CalendarBody
                         firstDayOfMonth={firstDayOfMonth}
                         daysInMonth={daysInMonth}
                         currentDay={currentDay}
@@ -85,13 +123,18 @@ const Calendars = () => {
                         actualMonth={actualMonth}
                         setSelectedDay={setSelectedDay}
                         selectedDay={selectedDay}
-                        weekdays={moment.weekdays()} 
-                        
+                        weekdays={moment.weekdays()}
+
                     />
         </Grid>
         <Grid item xs={12} md={7}>
                 <Paper className="paper-activities">
                 <h3>Activities on {selectedDay.day}-{selectedDay.month + 1}</h3>
+                <ActivityList
+                   
+                    activities={activities}
+                    
+                />
                 </Paper>
         </Grid>
         </div>

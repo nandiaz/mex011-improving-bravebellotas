@@ -1,21 +1,35 @@
-import TableBody from "@mui/material/TableBody";
-import TableRow from "@mui/material/TableRow";
-import TableCell from "@mui/material/TableCell";
+import { TableBody, TableRow, TableCell, Button, TextField, Typography } from "@mui/material";
+import { EditOutlined, DeleteOutlined } from "@mui/icons-material";
+import { useDataContext } from "../../../Hooks/json-provider";
 
-export default function EditTableRow({rows}) {
+import { useState } from "react";
 
-//console.log(rows)
-  
+export default function EditTableRow({ rows, endpoint }) {
+  const { jsonData } = useDataContext();
+  console.log(endpoint)
+  const [edit, setEdit] = useState(false);
+  const del = () => {
+    const action = window.confirm(`Are you sure you want to delete this row?`)
+    jsonData(`http://localhost:5000/${endpoint}`, "DELETE");
+  };
   return (
     <>
       <TableBody>
         {rows.map((row) => (
           <TableRow key={row}>
             {row.map((info) => (
-              <TableCell scope="row" key={info} sx={{width: "fit-content",}}>
-                {info}
+              <TableCell scope="row" key={info} sx={{ width: "fit-content" }}>
+                <Typography>{info}</Typography>
               </TableCell>
-            ))} {/* Add edit and delete actions */}
+            ))}
+            <TableCell sx={{ width: 3 / 8 }}>
+              <Button onClick={() => (edit ? setEdit(false) : setEdit(true))}>
+                <EditOutlined />
+              </Button>
+              <Button onClick={() => del()}>
+                <DeleteOutlined />
+              </Button>
+            </TableCell>
           </TableRow>
         ))}
       </TableBody>

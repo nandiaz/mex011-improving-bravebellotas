@@ -13,42 +13,41 @@ export default function CurrentGoal() {
   let url = "http://localhost:5000/Action-Plan";
 
   const fetchApi = async () => {
-    const response =await fetch(url)
+    const response = await fetch(url)
     console.log(response.status)
-    const responseJSON= await response.json();
+    const responseJSON = await response.json();
     setData(responseJSON)
     console.log(responseJSON)
   }
 
-  useEffect (() => {
+  useEffect(() => {
     fetchApi()
   }, [])
-  // cambiar el nombre de campo  "SMART-Goal"
+
   return (
     <div className='current-goal'>
-       <h2 className='title-current-goal'>Current Goal</h2>
+      <h2 className='title-current-goal'>Current Goal</h2>
 
-        <Box 
+      <Box
         p={1}
         borderRadius={5}
         fontFamily={'Roboto'}
         fontWeight={500}
         bgcolor="#ffe0b2"
-        color="#001E52" 
+        color="#001E52"
         clone
         textAlign="center"
-        >
-        { !data ? 'Cargando...' :
+      >
+        <h2>Read a chapter of a book</h2>
+        {/* { !data ? 'Cargando...' :
           data.map((data, index) => {
-            return <li key={index}> data.actionPlan[0]["SMART-Goal"]
-          </li>
+            return <li key={index}> {data.smartGoal}</li>
+             <li key={index}> data.actionPlan[0]["SMART-Goal"]</li>
           })
-        }
-        </Box>
-
-
+        } */}
+      </Box>
 
     </div>
-  
+
   );
 }

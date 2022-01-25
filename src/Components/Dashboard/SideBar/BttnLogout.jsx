@@ -5,6 +5,7 @@ import React, { useState } from "react";
 import { signOut } from "@firebase/auth";
 import { auth } from "../../../Firebase/firebase-config"
 
+const btnsmall = 50;
 export const BttnLogout = () => {
     const navigate = useNavigate();
     const [error, setError] = useState("");
@@ -19,10 +20,10 @@ export const BttnLogout = () => {
             setError("Error");
         }
     };
-
+    const btnsmall = 50;
     return (
         <div>
-            <Button variant="contained" className="bttn-logout" color="secondary" onClick={handlesignOut}>Sign out</Button>
+            <Button size ="small" variant="contained" className="bttn-logout" color="secondary" onClick={handlesignOut}>Sign out</Button>
             <div className="error">{error}</div>
         </div>
 

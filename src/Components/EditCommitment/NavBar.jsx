@@ -26,16 +26,17 @@ export default function NavBar() {
   };
 
   return (
-    <Box style={{ backgroundColor: '#3DB39E'}} sx={{ width: '100%' }}>
+    <Box style={{ backgroundColor: '#3DB39E'}} sx={{ width: '100%', pl: 8, pr: 8 }}>
       <Tabs value={value} onChange={handleChange} aria-label="nav bar">
         <IconButton>
-          <DashboardIcon/>
+          <DashboardIcon style={{ color: '#2A594D'}} />
+          <LinkTab label="Dashboard" href="/Dashboard" style={{ color: 'black'}} />
         </IconButton>
-        <LinkTab label="Areas of focus" href="/focus" />
-        <LinkTab label="Action plan" href="/plan" />
-        <LinkTab label="Planned deliberate practices" href="/practice" />
-        <LinkTab label="Accountability" href="/accountability" />
-        <LinkTab label="Deliberate practice log" href="/log" />
+        <LinkTab label="Areas of focus" href="/Areas-Of-Focus" />
+        <LinkTab label="Action plan" href="/Action-Plan" />
+        <LinkTab label="Planned deliberate practices" href="/Planned-Deliberate-Practices" />
+        <LinkTab label="Accountability" href="/Accountability" />
+        <LinkTab label="Deliberate practice log" href="/Deliberate-Practice-Log" Link to={`/`} />
       </Tabs>
     </Box>
   );

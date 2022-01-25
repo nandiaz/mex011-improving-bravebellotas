@@ -3,10 +3,9 @@ import EditTableRow from "./EditTableRow";
 import EditTableHead from "./EditTableHead";
 import React, { useEffect } from "react";
 
-export default function EditTable({ title, tableData: data, selectedPeriod, currentUser }) {
+export default function EditTable({ title, tableData: data, selectedPeriod, currentUser, endpoint }) {
 
-  const filteredInfo = data
-  // console.log(filteredInfo)
+  // Filtering the info is still needed
   let headValues = Object.keys(data[0]);
   const rows = data.map((obj) =>
     Object.values(obj).splice(4, headValues.length)
@@ -17,23 +16,34 @@ export default function EditTable({ title, tableData: data, selectedPeriod, curr
     <>
       <TableContainer
         component={Paper}
-        sx={{ width: 1 / 3, mx: "auto", my: "1em" }}
+        sx={{
+          width: 3 / 4,
+          mx: "auto",
+          my: "2em",
+          boxShadow: "none",
+          border: "1px solid black",
+        }}
       >
-        <Typography id={title} sx={{ textAlign: "center" }}>
+        <Typography
+          id={title}
+          sx={{
+            fontWeight: "700",
+            color: "#4597D3",
+            fontSize: "1.5em",
+            textAlign: "center",
+          }}
+        >
           {title ? title.replace(/-/g, " ") : null}
         </Typography>
         {data ? (
-          <Table sx={{ width: 7 / 8, m: 2 }} aria-label="simple table">
-            <EditTableHead
-              headValues={headValues}
-            />
-            <EditTableRow rows={rows} />
+          <Table sx={{ width: 7 / 8, mx: "auto" }} aria-label="simple table">
+            <EditTableHead headValues={headValues} />
+            <EditTableRow rows={rows} endpoint={endpoint} />
           </Table>
         ) : null}
       </TableContainer>
       <Box
         sx={{
-          width: 1 / 3,
           display: "flex",
           flexWrap: "no-wrap",
           mx: "auto",
