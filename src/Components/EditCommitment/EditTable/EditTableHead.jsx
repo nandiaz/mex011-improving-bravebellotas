@@ -1,7 +1,6 @@
 import {TableRow, TableHead, TableCell} from "@mui/material";
 
 export default function EditTableHead({headValues}) {
-  // Ver por qué headValues se guarda en un objeto y no sólo queda el arreglo
   return (
     <>
       <TableHead>
@@ -22,6 +21,7 @@ export default function EditTableHead({headValues}) {
               {value}
             </TableCell>
           ))}
+          <TableCell sx={{width: 3 / 8}}>Actions</TableCell>
         </TableRow>
       </TableHead>
     </>
