@@ -1,0 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+
+.avatar{
+      display: flex;
+      position: relative;
+      margin-top: 3vh;
+      margin-left: 5%;      
+  }
+
+  .infoUser{
+      text-align: center;
+      color: #ffffff;
+      margin-top: 12px;
+      font-family: 'Roboto', sans-serif;
+  }
