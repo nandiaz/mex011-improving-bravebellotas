@@ -1,4 +1,4 @@
-import { TableBody, TableRow, TableCell, Button, TextField } from "@mui/material";
+import { TableBody, TableRow, TableCell, Button, TextField, Typography } from "@mui/material";
 import { EditOutlined, DeleteOutlined } from "@mui/icons-material";
 import { useDataContext } from "../../../Hooks/json-provider";
 
@@ -17,21 +17,16 @@ export default function EditTableRow({ rows, endpoint }) {
       <TableBody>
         {rows.map((row) => (
           <TableRow key={row}>
-            {row.map((info) => 
-              !edit ? (
-                <TableCell scope="row" key={info} sx={{ width: "fit-content" }}>
-                  {info}
-                </TableCell>
-              ) : (
-                <TextField scope="row" key={info} >
-                  {info}
-                </TextField>
-              ))}
+            {row.map((info) => (
+              <TableCell scope="row" key={info} sx={{ width: "fit-content" }}>
+                <Typography>{info}</Typography>
+              </TableCell>
+            ))}
             <TableCell sx={{ width: 3 / 8 }}>
-              <Button onClick={()=> edit ? setEdit(false) : setEdit(true)}>
+              <Button onClick={() => (edit ? setEdit(false) : setEdit(true))}>
                 <EditOutlined />
               </Button>
-              <Button onClick={()=> del()}>
+              <Button onClick={() => del()}>
                 <DeleteOutlined />
               </Button>
             </TableCell>

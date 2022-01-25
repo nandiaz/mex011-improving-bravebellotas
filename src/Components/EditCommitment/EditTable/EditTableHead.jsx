@@ -16,12 +16,13 @@ export default function EditTableHead({headValues}) {
               key={value}
               align="left"
               component="th"
+              id="bold"
               sx={{ fontWeight: "700", width: "fit-content" }}
             >
               {value}
             </TableCell>
           ))}
-          <TableCell sx={{width: 3 / 8}}>Actions</TableCell>
+          <TableCell id="bold" sx={{width: 3 / 8} }>Actions</TableCell>
         </TableRow>
       </TableHead>
     </>
