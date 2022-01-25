@@ -36,8 +36,8 @@ export default function TableInputs({ title, tableData: data, selectedPeriod, cu
 
   const putData = async ( e) => {
     e.preventDefault();
-    await jsonData(`http://localhost:5000/${endpoints}`, "POST")
-    alert(`Text ${byWhen} ${smartGoal}`)
+    /* await jsonData(`http://localhost:5000/${endpoints}`, "POST")
+    alert(`Text ${byWhen} ${smartGoal}`) */
 
   }
 
