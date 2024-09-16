@@ -11,9 +11,9 @@ export default function CommitmentsTable() {
   // hook para la data
   const [data, setData] = useState([]);
 
-  let url = "http://localhost:5000/Period" // campo "id"
-  // let urlOne = "http://localhost:5000/Main-Goal" // campo "name"
-  // let urlTwo = "http://localhost:5000/Action-Plan"; // campo "status"
+  let url = "http://localhost:5000/Period" // "id" field
+  // let urlOne = "http://localhost:5000/Main-Goal" // "name" field
+  // let urlTwo = "http://localhost:5000/Action-Plan"; // "status" field
 
 
   const fetchApi = async () => {

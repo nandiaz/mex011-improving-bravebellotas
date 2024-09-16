@@ -10,6 +10,7 @@ const DataProvider = (props) => {
   const [currentUser, setCurrentUser] = useState("squad@braveBellotas.com");
   const [currentAmbition, setCurrentAmbition] = useState(null);
   const [error, setError] = useState();
+  const [trigger, setTrigger] = useState();
 
   const onLogout = () => setData(initialData);
 
@@ -83,7 +84,7 @@ const DataProvider = (props) => {
           "There was an error retrieving your data, please try again later"
         );
       });
-  }, []);
+  }, [trigger]);
 
   useEffect(() => {
     if (data && data !== {}) {
@@ -106,6 +107,7 @@ const DataProvider = (props) => {
     currentAmbition,
     setCurrentAmbition,
     setSelectedPeriod,
+    setTrigger
   };
   return (
     <DataContext.Provider value={value}>{props.children}</DataContext.Provider>

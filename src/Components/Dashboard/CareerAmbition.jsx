@@ -1,24 +1,29 @@
-import React, { useState, useEffect } from 'react';
-import TextField from '@mui/material/TextField';
-import '../Styles/CareerAmbition.css';
-import Button from '@mui/material/Button';
-import Stack from '@mui/material/Stack';
-import Container from '@mui/material/Container';
+import React, { useState, useEffect } from "react";
+import TextField from "@mui/material/TextField";
+import "../Styles/CareerAmbition.css";
+import Button from "@mui/material/Button";
+import Stack from "@mui/material/Stack";
+import Container from "@mui/material/Container";
 
-//importar la base de datos
-//import {db} from "firebase-config.js"
-
-
-//pasar el parametropara hacer visible el career
 export default function CareerAmbition() {
   //  const [data, setData] = useState({
   //    nombre:'',
   //  });
-  const [myValueCareer, setMyValueCareer] = useState('');
+  //const [myValueCareer, setMyValueCareer] = useState('');
+
+  const [value, setValue] = useState("");
+  const handleChange = (e) => {
+    setValue(e.target.value);
+    localStorage.setItem("inputValue", e.target.value);
+  };
+
+  useEffect(() => {
+    setValue(localStorage.getItem("inputValue"));
+  }, []);
 
   const cleanText = () => {
-    setMyValueCareer('');
-  }
+    setValue("");
+  };
 
   // let url = "http://localhost:5000/Career-Ambitions";
   // const fetchApi = async () => {
@@ -47,11 +52,12 @@ export default function CareerAmbition() {
   //   };
 
   return (
-    <Container maxWidth='lg'>
-      <div className='career-ambition'>
-        <h1 className='title-career-ambition'>Career Ambition</h1>
+    <Container maxWidth="lg">
+      <div className="career-ambition">
+        <h1 className="title-career-ambition">Career Ambition</h1>
         <br />
         {/* <h2>{data.nombre}</h2> */}
+        {/* <h3 className='title-value-career-ambition'>{value}</h3> */}
         <br />
 
         <TextField
@@ -60,8 +66,8 @@ export default function CareerAmbition() {
           name="career"
           style={{ margin: 10 }}
           placeholder=""
-          value={myValueCareer}
-          onChange={(e) => setMyValueCareer(e.target.value)}
+          value={value}
+          onChange={handleChange}
           fullWidth
           margin="normal"
           InputLabelProps={{
@@ -71,16 +77,20 @@ export default function CareerAmbition() {
         />
 
         <Stack spacing={2} direction="row">
-          <Button variant="contained" onClick={(e) => cleanText(myValueCareer)}>
+          <Button variant="contained" onClick={(e) => cleanText(value)}>
             Editar
           </Button>
         </Stack>
       </div>
     </Container>
-
   );
 }
-{/* <Box 
+
+// value={myValueCareer}
+// onChange={(e) => setMyValueCareer(e.target.value)}
+
+{
+  /* <Box 
         p={1}
         borderRadius={5}
         fontFamily={'Roboto'}
@@ -95,9 +105,11 @@ export default function CareerAmbition() {
             return <li key={index}> {data.name}<br/>{data.description}</li>
           })
         }
-        </Box> */}
+        </Box> */
+}
 
-{/* <TextField
+{
+  /* <TextField
           value={myValue}
           name='nombre'
           fullWidth='1'
@@ -114,6 +126,5 @@ export default function CareerAmbition() {
           <Button variant="contained" onClick={handleClick}>
             Editar
           </Button>
-        </Stack> */}
-
-
+        </Stack> */
+}

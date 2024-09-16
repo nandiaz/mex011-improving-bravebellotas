@@ -95,7 +95,7 @@ export default function Home() {
             color="primary"
             className="btt-submit"
             type="submit"
-            value="login">
+            value="INGRESAR">
               Login
             </Button>
           </form>

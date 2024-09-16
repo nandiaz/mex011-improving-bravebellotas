@@ -1,72 +1,71 @@
-import { FormControl, InputLabel, Input } from "@mui/material";
-import Button from "@material-ui/core/Button";
-import { TextField } from "@material-ui/core";
-import { useState } from "react";
-import { useDataContext } from "../../../Hooks/json-provider";
+import React from 'react';
 
-export default function TableInputs({ title, tableData: data, selectedPeriod, currentUser }) {
+export const TodosInputs = () => {
+  return (<div>
 
-  const { jsonData } = useDataContext()
+Main-Goal
+<FormControl sx={{ width: 3 / 9, minWidth: "10em" }} onSubmit={ putData }>
+          <TextField            
+            label="Main Goal"            
+          />  
+<FormControl/>    
 
-  const [smartGoal, setSmartGoal] = useState('');
-  const [byWhen, setByWhen] = useState('');
-  const [status, setStatus] = useState('');
+Areas-Of-Focus
+<FormControl sx={{ width: 3 / 9, minWidth: "10em" }} onSubmit={ putData }>
+          <TextField            
+            label="Categories"            
+          />  
+<FormControl/> 
+Action-Plan
+<FormControl sx={{ width: 3 / 9, minWidth: "10em" }} onSubmit={ putData }>
+          <TextField            
+            label="Smart Goal"            
+          />  
+          <TextField            
+            label="By When"            
+          />  
+          <TextField            
+            label="Status"            
+          />  
+<FormControl/> 
+Accountability
+<FormControl sx={{ width: 3 / 9, minWidth: "10em" }} onSubmit={ putData }>
+          <TextField            
+            label="Contact"            
+          />  
+          <TextField            
+            label="Frecuency"            
+          />  
+          <TextField            
+            label="Via"            
+          />  
+<FormControl/> 
+Plan Deliberate Practices
+<FormControl sx={{ width: 3 / 9, minWidth: "10em" }} onSubmit={ putData }>
+          <TextField            
+            label="Action/Practice/Habit"            
+          />  
+          <TextField            
+            label="Frecuency"            
+          />             
+<FormControl/> 
+Deliberate Practice Log
+<FormControl sx={{ width: 3 / 9, minWidth: "10em" }} onSubmit={ putData }>
+          <TextField            
+            label="Action/Practice/Habit"            
+          />  
+          <TextField            
+            label="Date"  
+            type="date"          
+          /> 
+          <TextField            
+            label="Outcome"            
+          />              
 
-  const [dataInput, setDataInput] = useState(" ");
-
-  const filteredInfo = data
-  // console.log(filteredInfo)
-  let headValues = Object.keys(data[0]);
-  const rows = data.map((obj) =>
-    Object.values(obj).splice(4, headValues.length)
-  );
-
-  //console.log(rows)
-  headValues = headValues.splice(4, headValues.length).map(title => title.replace(/-/g, " "));
-
-  const areasOfFocus =
-  {
-    "id": "",
-    "user": "",
-    "ambition": "",
-    "period": "",
-    "Categories": []
-  }
-  
-
-  const putData = async ( e) => {
-    e.preventDefault();
-    /* await jsonData(`http://localhost:5000/${endpoints}`, "POST")
-    alert(`Text ${byWhen} ${smartGoal}`) */
-
-  }
-
-  const addField = (e) => {
-    e.preventDefault();
-    console.log(dataInput)
-  }
-
-  const handleSubmit = (e) =>{
-    e.preventDefault();
-     
-  }
-
-
-  // jsondata(url, "PUT", info )
 
 
 
-
-  return (
-    <>
-        <FormControl sx={{ width: 3 / 9, minWidth: "10em" }} onSubmit={putData}>
-          <TextField
-            value={ smartGoal }
-            label="Smart Goal"  
-            type="text"
-            onChange={(e) => setSmartGoal(e.target.value)}
-          />        
-        
+<FormControl/> 
         <TextField
           value={byWhen}
           label="By When"
@@ -91,21 +90,9 @@ export default function TableInputs({ title, tableData: data, selectedPeriod, cu
         type="submit"
         value="add" > Add </Button>
     </>
-  );
-}
 
-
-
-
-
-
-
-
-
-
-
-
-
+  </div>);
+};
 
 
 /* 

@@ -1,52 +1,64 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import NavBar from "./NavBar";
+import "../Styles/EditTable.css";
 
-import { Box, Typography } from "@mui/material";
-import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-
 import EditTable from "./EditTable/EditTable";
+import { EditOutlined } from "@mui/icons-material";
+import React from "react";
+import { Box, Typography, Button } from "@mui/material";
 import { useDataContext } from "../../Hooks/json-provider";
-import TableInputs from "./EditTable/TableInputs";
 
 export default function EditCommitment() {
   const id = useParams();
-  const { data, currentAmbition, selectedPeriod, error, currentUser } =
-    useDataContext();
-  const [goal, setGoal] = useState();
+  const { data, selectedPeriod, error } = useDataContext();
 
   const endpoints = [
     "Career-Ambitions",
     "Period",
     "Main-Goal",
-    "Areas-Of-Focus",
     "Action-Plan",
+    "Areas-Of-Focus",
     "Accountability",
     "Planned-Deliberate-Practices",
     "Deliberate-Practice-Log",
   ];
 
-  useEffect(() => {
-    if (data && data !== {}) {
-      /* setGoal(
-        data.mainGoal.filter((info) => info.ambition === currentAmbition)[0][
-          "name"
-        ]
-      );
-      console.log(goal) */
-      console.log(currentAmbition);
-    } else if (error) console.log(error);
-  }, [data]);
-
   return (
-    <Box component="main">
+    <Box component="main" id="edit">
       <NavBar />
       {data ? (
         <>
-          <Typography>
+          <Typography
+            component="h2"
+            sx={{
+              color: "#005596",
+              fontWeight: "700",
+              fontSize: "2em",
+              textAlign: "center",
+              pt: 15,
+            }}
+          >
             Main Goal: {data ? data.mainGoal[0].name : null}
           </Typography>
-          <Typography>Period: {data ? data.period[0].id : null}</Typography>
+          <Box
+            sx={{
+              display: "flex",
+              flexDirection: "row",
+              justifyContent: "center",
+              my: 1,
+            }}
+          >
+            <Typography
+              component="h2"
+              sx={{ color: "#005596", textAlign: "center", fontSize: "1.5em" }}
+            >
+              Period: {data ? data.period[0].id : null}
+            </Typography>
+            <Button>
+              <EditOutlined />
+            </Button>
+          </Box>
         </>
       ) : null}
       {data ? (
@@ -64,17 +76,19 @@ export default function EditCommitment() {
             />
           ) : null
         )
-        
       ) : !error ? (
-        <Typography>Loading...</Typography>
+        <Box sx={{ height: "100vh" }}>
+          <Typography sx={{ pt: 15, textAlign: "center" }}>
+            Loading...
+          </Typography>
+        </Box>
       ) : (
-        <Typography>There was an error, please reload the page</Typography>
+        <Box sx={{ height: "100vh" }}>
+          <Typography sx={{ pt: 15, textAlign: "center" }}>
+            There was an error, please reload the page
+          </Typography>
+        </Box>
       )}
     </Box>
   );
 }
-
-/* <TableFocus key={title + index}
-                title={endpoints[index]}
-                tableData={data[title]}
-                selectedPeriod={selectedPeriod} /> */
